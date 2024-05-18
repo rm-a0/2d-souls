@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 import pygame
+from constants import *
   
 # Screen setup (16:9 aspect ratio)
-screen = pygame.display.set_mode((1366 ,768))
+screen = pygame.display.set_mode((SCREEN_WIDTH ,SCREEN_HEIGHT))
 pygame.display.set_caption('beta') 
 screen.fill('black')
   
