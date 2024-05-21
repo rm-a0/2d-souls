@@ -17,8 +17,8 @@ Run using
 ./main.py
 ```
 > [!NOTE]
-> You may run into relative import beyond toplevel package.
-> To fix this either change your PYTHONPATH (not recommended).
+> You may run into relative import beyond toplevel package. \
+> To fix this either change your PYTHONPATH (not recommended). \
 > Linux
 > ```
 > export PYTHONPATH=’path/to/directory’
