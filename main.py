@@ -6,15 +6,14 @@ from objs.player import Player  # Player class
 def main(): 
     # Screen setup (16:9 aspect ratio)
     screen = pygame.display.set_mode((SCREEN_WIDTH ,SCREEN_HEIGHT))
-    pygame.display.set_caption('2d-er-dev') 
+    pygame.display.set_caption('dev/2d-er') 
     screen.fill('black')
 
     # Update the display using flip 
     pygame.display.flip()
 
     # Create objects
-    p = Player(40, 40)
-
+    p = Player(200, 200)
 
     running = True 
     while running: 
