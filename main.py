@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 import pygame
-from constants import *
+import sys
+
+from constants import *         # Constant variables
 from objs.player import Player  # Player class
 from ui.bars import *           # Bar classes
 
@@ -30,18 +32,23 @@ def main():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     p.jump()
-        
+                if event.key == pygame.K_LSHIFT:
+                    p.roll()
+
         # Hold controls
         keys = pygame.key.get_pressed()
         if keys[pygame.K_d]:
             p.move_right()
         if keys[pygame.K_a]:
             p.move_left()
-        
+
         # Apply physics
         p.apply_gravity()
+        # Refill stamina
+        p.refill_stamina(1)
         # Update objects
         p.update()
+
         # Update ui
         p_hp_bar.update(p.hp)
         p_mana_bar.update(p.mana)

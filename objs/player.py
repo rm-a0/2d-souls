@@ -26,11 +26,11 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.rect.y += self.vel_y
         self.rect.x += self.vel_x
-    
+
     # Gravity implemented with ground as base 
     def apply_gravity(self):
         if self.jumping == True:
-            self.vel_y += 0.25
+            self.vel_y += GRAVITY
             # Reset jump flag veloctiy and y coord
             if self.rect.y > GROUND:
                 self.jumping = False
@@ -49,7 +49,22 @@ class Player(pygame.sprite.Sprite):
 
     # Sets flag and decreases y velocity
     def jump(self):
-        if self.stamina > 100 and self.jumping == False:
+        if self.stamina > 100 and self.jumping == False and self.rolling == False:
             self.stamina -= 100
             self.vel_y = -self.jump_speed
             self.jumping = True
+
+    # Sets flag and increases/decreases x velocity
+    def roll(self):
+        if self.stamina > 100 and self.jumping == False and self.rolling == False:
+            self.stamina -= 100
+            self.rolling = True
+            if self.facing == RIGHT:
+                self.rect.x += 2*self.speed
+            if self.facing == LEFT:
+                self.rect.x -= 2*self.speed
+
+    # Refills stamina by given amount
+    def refill_stamina(self, amount):
+        if self.stamina + amount <= PLAYER_MAX_STAMINA:
+            self.stamina += amount
