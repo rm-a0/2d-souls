@@ -2,6 +2,7 @@
 import pygame
 from constants import *
 from objs.player import Player  # Player class
+from ui.bars import *           # Bar classes
 
 def main(): 
     # Screen setup (16:9 aspect ratio)
@@ -11,6 +12,7 @@ def main():
     # Create objects
     p = Player(100, GROUND)
     sprites = pygame.sprite.Group(p)
+
     # Game loop
     running = True 
     while running: 
