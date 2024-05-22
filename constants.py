@@ -1,17 +1,23 @@
-# Screen releated constants
+# SCREEN CONST
 SCREEN_WIDTH = 1336
 SCREEN_HEIGHT = 768
 
-# Temporary
+# TEMP
 GROUND = SCREEN_HEIGHT - 150
 
-# Constants
+# GENERAL CONST
 LEFT = 1
 RIGHT = 0
 
-# Base stats for player
+# PLAYER CONST
+# Stats
 PLAYER_MAX_HP = 500
 PLAYER_MAX_MANA = 50
 PLAYER_MAX_STAMINA = 800
 PLAYER_SPEED = 3
 JUMP_SPEED = 10
+
+# UI CONSTS
+# BARS
+BAR_HEIGHT = 10
+# Coords

@@ -11,7 +11,12 @@ def main():
 
     # Create objects
     p = Player(100, GROUND)
-    sprites = pygame.sprite.Group(p)
+    # Create ui
+    p_hp_bar = Bar(20, 20, p.hp, 'red')
+    p_mana_bar = Bar(20, 50, p.mana, 'blue')
+    p_stamina_bar = Bar(20, 80, p.stamina, 'green')
+    # Append sprites
+    sprites = pygame.sprite.Group(p, p_hp_bar, p_mana_bar, p_stamina_bar)
 
     # Game loop
     running = True 
@@ -33,9 +38,14 @@ def main():
         if keys[pygame.K_a]:
             p.move_left()
         
-
+        # Apply physics
         p.apply_gravity()
+        # Update objects
         p.update()
+        # Update ui
+        p_hp_bar.update(p.hp)
+        p_mana_bar.update(p.mana)
+        p_stamina_bar.update(p.stamina)
 
         # Clear and draw new frame
         screen.fill('black')
