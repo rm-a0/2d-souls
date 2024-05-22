@@ -37,13 +37,14 @@ Run using
 
 > [!NOTE]
 > Keybinds and rebinding is not implemented yet
+> You can rebind keys manually in main.py
 
 ### List of Keybinds
 | Keys                      | Actions                                       |
 |---------------------------|-----------------------------------------------|
 | `A`                       | Move left (backward)                          |
 | `D`                       | Move right (forward)                          |
-| `W`                       | Jump                                          |
+| `[Space]`                 | Jump                                          |
 | `[L-Shift]`               | Roll                                          |
 
 # Bugs and issues
