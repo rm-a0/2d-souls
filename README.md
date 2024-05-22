@@ -47,8 +47,10 @@ Run using
 | `[Space]`                 | Jump                                          |
 | `[L-Shift]`               | Roll                                          |
 
-# Bugs and issues
+# Bugs and Issues
 
+- [ ] Rolling doesnt work properly
+- [ ] Jumping feels off
 # Goals
 
 - [ ] Positioning and movement relative to screen size
