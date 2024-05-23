@@ -1,6 +1,6 @@
 # Overview
 
-2D minigame inspired by Dark Souls, Sekiro and Hollow Knight in Metroidvania style
+2D minigame inspired by Dark Souls, Sekiro and Hollow Knight in Metroidvania style. \
 
 # How to Install and Run
 
@@ -45,7 +45,9 @@ Run using
 | `A`                       | Move left (backward)                          |
 | `D`                       | Move right (forward)                          |
 | `[Space]`                 | Jump                                          |
-| `[L-Shift]`               | Dash                                          |    
+| `[L-Shift]`               | Dash                                          |
+| `[L-MButton]`             | Attack                                        |
+| `[R-MButton]`             | Deflect                                       |
 
 # Bugs and Issues
 
