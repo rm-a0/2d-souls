@@ -1,6 +1,6 @@
 # Overview
 
-2D game inspired by Dark Souls, Sekiro and Hollow Knight level in Metroidvania style
+2D minigame inspired by Dark Souls, Sekiro and Hollow Knight in Metroidvania style
 
 # How to Install and Run
 
