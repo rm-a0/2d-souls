@@ -28,13 +28,12 @@ class Player(pygame.sprite.Sprite):
 
     # Gravity implemented with ground as base 
     def apply_gravity(self):
-        if self.jumping == True:
-            self.vel_y += GRAVITY
-            # Reset jump flag veloctiy and y coord
-            if self.rect.y > GROUND:
-                self.jumping = False
-                self.vel_y = 0
-                self.rect.y = GROUND
+        self.vel_y += GRAVITY
+        # Reset jump flag veloctiy and y coord
+        if self.rect.y > GROUND:
+            self.jumping = False
+            self.vel_y = 0
+            self.rect.y = GROUND
 
     # Increases x coordinate
     def move_right(self):
