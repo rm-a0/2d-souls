@@ -1,12 +1,12 @@
 # Overview
 
-2D Elden Ring level in Metroidvania style
+2D game inspired by Dark Souls, Sekiro and Hollow Knight level in Metroidvania style
 
 # How to Install and Run
 
 Download or clone this repository
 ```
-git clone https://github.com/rm-a0/2d-elden-ring
+git clone https://github.com/rm-a0/2d-souls
 ```
 Install pygame
 ```
@@ -36,7 +36,7 @@ Run using
 # How to use
 
 > [!NOTE]
-> Keybinds and rebinding is not implemented yet
+> Rebinding is not implemented yet
 > You can rebind keys manually in main.py
 
 ### List of Keybinds
@@ -45,12 +45,10 @@ Run using
 | `A`                       | Move left (backward)                          |
 | `D`                       | Move right (forward)                          |
 | `[Space]`                 | Jump                                          |
-| `[L-Shift]`               | Roll                                          |
+| `[L-Shift]`               | Dash                                          |    
 
 # Bugs and Issues
 
-- [ ] Rolling doesnt work properly
-- [ ] Jumping feels off
 # Goals
 
 - [ ] Positioning and movement relative to screen size

@@ -6,10 +6,34 @@ from constants import *         # Constant variables
 from objs.player import Player  # Player class
 from ui.bars import *           # Bar classes
 
+# Hanlde keyboard input 
+def handle_events(p):
+    for event in pygame.event.get():
+        # Quit 
+        if event.type == pygame.QUIT: 
+            pygame.quit()
+            sys.exit()
+        # Press controls
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                p.jump()
+            elif event.key == pygame.K_LSHIFT:
+                p.dash()
+            elif event.key == pygame.K_F11:
+                pygame.display.toggle_fullscreen()
+
+    # Hold controls
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_d]:
+        p.move_right()
+    if keys[pygame.K_a]:
+        p.move_left()
+ 
 def main(): 
     # Screen setup (16:9 aspect ratio)
     screen = pygame.display.set_mode((SCREEN_WIDTH ,SCREEN_HEIGHT))
     pygame.display.set_caption('dev/2d-er')
+    clock = pygame.time.Clock()
 
     # Create objects
     p = Player(100, GROUND)
@@ -22,31 +46,12 @@ def main():
 
     # Game loop
     running = True 
-    while running: 
-        for event in pygame.event.get(): 
-            # Quit game
-            if event.type == pygame.QUIT: 
-                running = False
+    while running:
+        # Handle keyboard input
+        handle_events(p)
 
-            # Press controls
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    p.jump()
-                if event.key == pygame.K_LSHIFT:
-                    p.roll()
-
-        # Hold controls
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_d]:
-            p.move_right()
-        if keys[pygame.K_a]:
-            p.move_left()
-
-        # Apply physics
         p.apply_gravity()
-        # Refill stamina
         p.refill_stamina(1)
-        # Update objects
         p.update()
 
         # Update ui
@@ -58,6 +63,8 @@ def main():
         screen.fill('black')
         sprites.draw(screen)
         pygame.display.flip()
+
+        clock.tick(FPS)
 
 if __name__ == "__main__":
     main()

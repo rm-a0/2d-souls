@@ -19,7 +19,6 @@ class Player(pygame.sprite.Sprite):
         self.jump_speed = JUMP_SPEED
         # Flags
         self.jumping = False
-        self.rolling = False
         self.facing = RIGHT
 
     # Updates x and y position based on velocity
@@ -49,20 +48,19 @@ class Player(pygame.sprite.Sprite):
 
     # Sets flag and decreases y velocity
     def jump(self):
-        if self.stamina > 100 and self.jumping == False and self.rolling == False:
+        if self.stamina > 100 and self.jumping == False: 
             self.stamina -= 100
             self.vel_y = -self.jump_speed
             self.jumping = True
 
     # Sets flag and increases/decreases x velocity
-    def roll(self):
-        if self.stamina > 100 and self.jumping == False and self.rolling == False:
+    def dash(self):
+        if self.stamina > 100:
             self.stamina -= 100
-            self.rolling = True
             if self.facing == RIGHT:
-                self.rect.x += 2*self.speed
+                self.rect.x += 200 
             if self.facing == LEFT:
-                self.rect.x -= 2*self.speed
+                self.rect.x -= 200 
 
     # Refills stamina by given amount
     def refill_stamina(self, amount):
