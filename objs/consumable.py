@@ -19,3 +19,12 @@ class Flask(pygame.sprite.Sprite):
                 setattr(player, self.flask_type, max_stat)
             else:
                 setattr(player, self.flask_type, stat + self.rfl_amt)
+
+    # Increments flask quantity
+    def refill_flask(self):
+        if self.qty < self.max_qty:
+            self.qty += 1
+
+    # Increases refill amount by given amount
+    def inc_refill_amount(self, amt):
+        self.rfl_amt += amt

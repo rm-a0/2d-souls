@@ -65,6 +65,6 @@ class Player(pygame.sprite.Sprite):
                 self.rect.x -= 200 
 
     # Refills stamina by given amount
-    def refill_stamina(self, amount):
-        if self.stamina + amount <= PLAYER_MAX_STAMINA:
-            self.stamina += amount
+    def refill_stamina(self, amt):
+        if self.stamina + amt <= PLAYER_MAX_STAMINA:
+            self.stamina += amt
