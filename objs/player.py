@@ -5,7 +5,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
         self.image = pygame.Surface((50, 70))
-        self.image.fill('green')
+        self.image.fill(GREEN)
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
         # Physics
@@ -34,9 +34,9 @@ class Player(pygame.sprite.Sprite):
         self.vel_y += GRAVITY
         # Reset jump flag veloctiy and y coord
         if self.rect.y > GROUND:
-            self.jumping = False
             self.vel_y = 0
             self.rect.y = GROUND
+            self.jumping = False
 
     # Increases x coordinate
     def move_right(self):

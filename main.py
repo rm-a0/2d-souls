@@ -16,9 +16,7 @@ def handle_events(p, hp_flask):
             sys.exit()
         # Press controls
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                p.jump()
-            elif event.key == pygame.K_LSHIFT:
+            if event.key == pygame.K_LSHIFT:
                 p.dash()
             elif event.key == pygame.K_e:
                 hp_flask.refill_stat(p)
@@ -29,6 +27,8 @@ def handle_events(p, hp_flask):
         p.move_right()
     if keys[pygame.K_a]:
         p.move_left()
+    if keys[pygame.K_SPACE]:
+        p.jump()
  
 def main(): 
     # Screen setup (16:9 aspect ratio)
@@ -40,9 +40,9 @@ def main():
     p = Player(100, GROUND)
     hp_flask = Flask('hp', 5, 100)
     # Create ui
-    p_hp_bar = Bar(20, 20, p.hp, 'red')
-    p_mana_bar = Bar(20, 50, p.mana, 'blue')
-    p_stamina_bar = Bar(20, 80, p.stamina, 'green')
+    p_hp_bar = Bar(20, 20, p.hp, RED) 
+    p_mana_bar = Bar(20, 50, p.mana, BLUE)
+    p_stamina_bar = Bar(20, 80, p.stamina, GREEN)
     # Append all sprites 
     sprites = pygame.sprite.Group(p, p_hp_bar, p_mana_bar, p_stamina_bar)
 
@@ -62,7 +62,7 @@ def main():
         p_stamina_bar.update(p.stamina)
 
         # Clear and draw new frame
-        screen.fill('black')
+        screen.fill(BLACK)
         sprites.draw(screen)
         pygame.display.flip()
 

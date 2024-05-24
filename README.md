@@ -51,7 +51,7 @@ Run using
 
 # Bugs and Issues
 
-- [ ] Jumping feels clunky and non responsive in some scenarios
+- [x] Jumping feels clunky and non responsive in some scenarios
 # Goals
 
 - [ ] Positioning and movement relative to screen size
