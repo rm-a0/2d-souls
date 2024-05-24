@@ -5,9 +5,9 @@ SCREEN_HEIGHT = 768
 # COLORS 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-RED = (155, 0, 0)
-GREEN = (0, 150, 0)
-BLUE = (0, 0, 255)
+RED = (180, 0, 0)
+GREEN = (0, 170, 0)
+BLUE = (0, 0, 200)
 
 # Dont change (gravity doesnt work well with lower fps)
 FPS = 120   
