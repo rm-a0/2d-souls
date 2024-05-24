@@ -12,6 +12,9 @@ class Player(pygame.sprite.Sprite):
         self.vel_x = 0
         self.vel_y = 0
         # Player stats
+        self.max_hp = PLAYER_MAX_HP
+        self.max_mana = PLAYER_MAX_MANA
+        self.max_stamina = PLAYER_MAX_STAMINA
         self.hp = PLAYER_MAX_HP
         self.mana = PLAYER_MAX_MANA
         self.stamina = PLAYER_MAX_STAMINA

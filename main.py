@@ -2,12 +2,13 @@
 import pygame
 import sys
 
-from constants import *         # Constant variables
-from objs.player import Player  # Player class
-from ui.bars import *           # Bar classes
+from constants import *             # Constant variables
+from objs.player import Player      # Player class
+from objs.consumable import Flask   # Flask class
+from ui.bars import *               # Bar classes
 
 # Hanlde keyboard input 
-def handle_events(p):
+def handle_events(p, hp_flask):
     for event in pygame.event.get():
         # Quit 
         if event.type == pygame.QUIT: 
@@ -19,8 +20,8 @@ def handle_events(p):
                 p.jump()
             elif event.key == pygame.K_LSHIFT:
                 p.dash()
-            elif event.key == pygame.K_F11:
-                pygame.display.toggle_fullscreen()
+            elif event.key == pygame.K_e:
+                hp_flask.refill_stat(p)
 
     # Hold controls
     keys = pygame.key.get_pressed()
@@ -37,6 +38,7 @@ def main():
 
     # Create objects
     p = Player(100, GROUND)
+    hp_flask = Flask('hp', 5, 100)
     # Create ui
     p_hp_bar = Bar(20, 20, p.hp, 'red')
     p_mana_bar = Bar(20, 50, p.mana, 'blue')
@@ -48,7 +50,7 @@ def main():
     running = True 
     while running:
         # Handle keyboard input
-        handle_events(p)
+        handle_events(p, hp_flask)
 
         p.apply_gravity()
         p.refill_stamina(1)
