@@ -63,7 +63,7 @@ Run using
 
 ### TODO Checklist
 
+- [ ] Weapon class and methods
+- [ ] Slot tracking method
 - [ ] Dummy surface
 - [ ] Tilemap
-- [ ] Physics
-- [ ] Player object and methods

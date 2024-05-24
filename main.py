@@ -5,8 +5,11 @@ import sys
 from constants import *             # Constant variables
 from objs.player import Player      # Player class
 from objs.consumable import Flask   # Flask class
+from objs.weapon import Weapon      # Weapon class
 from ui.bars import Bar             # Bar classes
 from ui.icons import Icon           # Icon class
+from ui.slots import Slot           # Slot class
+
 # Hanlde keyboard input 
 def handle_events(p, hp_flask):
     for event in pygame.event.get():
