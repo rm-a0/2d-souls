@@ -5,8 +5,8 @@ import sys
 from constants import *             # Constant variables
 from objs.player import Player      # Player class
 from objs.consumable import Flask   # Flask class
-from ui.bars import *               # Bar classes
-
+from ui.bars import Bar             # Bar classes
+from ui.icons import Icon           # Icon class
 # Hanlde keyboard input 
 def handle_events(p, hp_flask):
     for event in pygame.event.get():
@@ -40,11 +40,12 @@ def main():
     p = Player(100, GROUND)
     hp_flask = Flask('hp', 5, 100)
     # Create ui
-    p_hp_bar = Bar(20, 20, p.hp, RED) 
-    p_mana_bar = Bar(20, 50, p.mana, BLUE)
-    p_stamina_bar = Bar(20, 80, p.stamina, GREEN)
+    ico = Icon(20, 20)
+    p_hp_bar = Bar(120, 20, p.hp, RED) 
+    p_mana_bar = Bar(120, 50, p.mana, BLUE)
+    p_stamina_bar = Bar(120, 80, p.stamina, GREEN)
     # Append all sprites 
-    sprites = pygame.sprite.Group(p, p_hp_bar, p_mana_bar, p_stamina_bar)
+    sprites = pygame.sprite.Group(p, ico, p_hp_bar, p_mana_bar, p_stamina_bar)
 
     # Game loop
     running = True 
