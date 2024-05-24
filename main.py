@@ -41,7 +41,7 @@ def main():
     p_hp_bar = Bar(20, 20, p.hp, 'red')
     p_mana_bar = Bar(20, 50, p.mana, 'blue')
     p_stamina_bar = Bar(20, 80, p.stamina, 'green')
-    # Append sprites
+    # Append all sprites 
     sprites = pygame.sprite.Group(p, p_hp_bar, p_mana_bar, p_stamina_bar)
 
     # Game loop

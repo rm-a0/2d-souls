@@ -52,7 +52,7 @@ class Player(pygame.sprite.Sprite):
             self.vel_y = -self.jump_speed
             self.jumping = True
 
-    # Sets flag and increases/decreases x velocity
+    # Increases x or y coordinate 
     def dash(self):
         if self.stamina > 100:
             self.stamina -= 100
