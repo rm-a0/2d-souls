@@ -6,3 +6,6 @@ class Weapon(pygame.sprite.Sprite):
         super().__init__()
         self.damage = damage
         self.weight = weight
+
+    def pass_damage(self):
+        return self.damage

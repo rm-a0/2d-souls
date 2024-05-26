@@ -23,6 +23,8 @@ class Player(pygame.sprite.Sprite):
         # Flags
         self.jumping = False
         self.facing = RIGHT
+        # Items
+        self.equipped_weapon = None
 
     # Updates x and y position based on velocity
     def update(self):
@@ -68,3 +70,7 @@ class Player(pygame.sprite.Sprite):
     def refill_stamina(self, amt):
         if self.stamina + amt <= PLAYER_MAX_STAMINA:
             self.stamina += amt
+
+    # Passes weapon class reference
+    def equip_weapon(self, weapon):
+        self.equipped_weapon = weapon
