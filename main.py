@@ -4,6 +4,7 @@ import sys
 
 from constants import *             # Constant variables
 from objs.player import Player      # Player class
+from objs.enemy import Enemy        # Enemy class
 from objs.consumable import Flask   # Flask class
 from objs.weapon import Weapon      # Weapon class
 from ui.bars import Bar             # Bar classes
@@ -41,6 +42,7 @@ def main():
 
     # Create objects
     p = Player(100, GROUND)
+    e = Enemy(SCREEN_WIDTH - 100, GROUND)
     w = Weapon(50, 50)
     p.equip_weapon(w)
     hp_flask = Flask('hp', 5, 100)
@@ -50,7 +52,7 @@ def main():
     p_mana_bar = Bar(120, 50, p.mana, BLUE)
     p_stamina_bar = Bar(120, 80, p.stamina, GREEN)
     # Append all sprites 
-    sprites = pygame.sprite.Group(p, ico, p_hp_bar, p_mana_bar, p_stamina_bar)
+    sprites = pygame.sprite.Group(p, e, ico, p_hp_bar, p_mana_bar, p_stamina_bar)
 
     # Game loop
     running = True 
