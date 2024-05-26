@@ -42,7 +42,7 @@ def main():
 
     # Create objects
     p = Player(100, GROUND)
-    e = Enemy(SCREEN_WIDTH - 100, GROUND)
+    e = Enemy(SCREEN_WIDTH - 200, GROUND)
     w = Weapon(50, 50)
     p.equip_weapon(w)
     hp_flask = Flask('hp', 5, 100)
