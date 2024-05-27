@@ -13,9 +13,11 @@ class Slot(pygame.sprite.Sprite):
         self.item = None
         self.font = font
 
+    # Assign new item to the slot
     def switch_item(self, item):
         self.item = item
 
+    # Update count of item stored in slot
     def update_count(self):
         self.image.fill(GREY)
         if self.item:

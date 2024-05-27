@@ -53,7 +53,7 @@ Run using
 # Bugs and Issues
 
 - [x] Jumping feels clunky and non responsive in some scenarios
-- [ ] When enemy is defeated coordinates still exist and bar updating crashes
+- [x] When enemy is defeated coordinates still exist and bar updating crashes
 
 # Goals
 
@@ -68,6 +68,7 @@ Run using
 
 - [x] Weapon class and methods
 - [x] Add more constants, erase magic numbers
+- [x] Create ui elements and classes
 - [ ] Make attack and deflect duration longer
 - [ ] Slot tracking method
 - [ ] Dummy surface

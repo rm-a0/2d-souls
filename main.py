@@ -11,11 +11,11 @@ from ui.bars import Bar             # Bar classes
 from ui.icons import Icon           # Icon class
 from ui.slots import Slot           # Slot class
 
-# Hanlde keyboard input 
+# Hanlde keyboard input
 def handle_events(p, e, s1, hp_flask):
     for event in pygame.event.get():
         # Quit 
-        if event.type == pygame.QUIT: 
+        if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
         # Press controls
@@ -38,10 +38,13 @@ def handle_events(p, e, s1, hp_flask):
         p.move_left()
     if keys[pygame.K_SPACE]:
         p.jump()
- 
+
+# Main 
 def main():
+    # Init important components
     pygame.init()
     pygame.font.init()
+
     # Screen setup (16:9 aspect ratio)
     screen = pygame.display.set_mode((SCREEN_WIDTH ,SCREEN_HEIGHT))
     pygame.display.set_caption('dev/2d-souls')
@@ -54,6 +57,7 @@ def main():
     w = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
     p.equip_weapon(w)
     hp_flask = Flask('hp', 5, 100)
+
     # Create ui
     ico = Icon(20, 20)
     p_hp_bar = Bar(120, 20, p.hp, RED)
@@ -63,6 +67,7 @@ def main():
     s1 = Slot(20, GROUND + 20, font)
     s1.switch_item(hp_flask)
     s1.update_count()
+
     # Append all sprites 
     sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar, s1)
 
