@@ -41,13 +41,13 @@ def handle_events(p, e, hp_flask):
 def main(): 
     # Screen setup (16:9 aspect ratio)
     screen = pygame.display.set_mode((SCREEN_WIDTH ,SCREEN_HEIGHT))
-    pygame.display.set_caption('dev/2d-er')
+    pygame.display.set_caption('dev/2d-souls')
     clock = pygame.time.Clock()
 
     # Create objects
     p = Player(100, GROUND)
     e = Enemy(SCREEN_WIDTH - 200, GROUND)
-    w = Weapon(50, 50, 100, 20)
+    w = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
     p.equip_weapon(w)
     hp_flask = Flask('hp', 5, 100)
     # Create ui

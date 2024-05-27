@@ -4,7 +4,7 @@ from constants import *
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        self.image = pygame.Surface((50, 70))
+        self.image = pygame.Surface((ENEMY_WIDTH, ENEMY_HEIGHT))
         self.image.fill(RED)
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)

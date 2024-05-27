@@ -4,7 +4,7 @@ from constants import *
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
-        self.image = pygame.Surface((50, 70))
+        self.image = pygame.Surface((PLAYER_WIDTH, PLAYER_HEIGHT))
         self.image.fill(GREEN)
         self.rect = self.image.get_rect()
         self.rect.topleft = (x, y)
@@ -80,9 +80,9 @@ class Player(pygame.sprite.Sprite):
         if self.stamina >= ATK_S_COST:
             self.stamina -= ATK_S_COST
             if self.facing == RIGHT:
-                self.equipped_weapon.draw_weapon(self.rect.x + 50, self.rect.y + 35)
+                self.equipped_weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
             else:
-                self.equipped_weapon.draw_weapon(self.rect.x - self.equipped_weapon.length, self.rect.y + 35)
+                self.equipped_weapon.draw_weapon(self.rect.x - self.equipped_weapon.length, self.rect.y + PLAYER_HEIGHT/2)
             if self.equipped_weapon.is_intersecting(object):
                 damage = self.equipped_weapon.damage
                 object.take_damage(damage)
