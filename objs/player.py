@@ -52,19 +52,19 @@ class Player(pygame.sprite.Sprite):
 
     # Sets flag and decreases y velocity
     def jump(self):
-        if self.stamina > 200 and self.jumping == False: 
-            self.stamina -= 200
+        if self.stamina > JMP_S_COST and self.jumping == False: 
+            self.stamina -= JMP_S_COST 
             self.vel_y = -self.jump_speed
             self.jumping = True
 
     # Increases x or y coordinate 
     def dash(self):
-        if self.stamina > 200:
-            self.stamina -= 200
+        if self.stamina > DASH_S_COST:
+            self.stamina -= DASH_S_COST
             if self.facing == RIGHT:
-                self.rect.x += 200 
+                self.rect.x += DASH_DIST 
             if self.facing == LEFT:
-                self.rect.x -= 200 
+                self.rect.x -= DASH_DIST 
 
     # Refills stamina by given amount
     def refill_stamina(self, amount):
@@ -77,8 +77,8 @@ class Player(pygame.sprite.Sprite):
 
     # Deals damage to object that is intersecting with weapon
     def attack(self, object):
-        if self.stamina >= 200:
-            self.stamina -= 200
+        if self.stamina >= ATK_S_COST:
+            self.stamina -= ATK_S_COST
             if self.facing == RIGHT:
                 self.equipped_weapon.draw_weapon(self.rect.x + 50, self.rect.y + 35)
             else:
