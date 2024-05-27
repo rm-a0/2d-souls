@@ -52,6 +52,8 @@ Run using
 # Bugs and Issues
 
 - [x] Jumping feels clunky and non responsive in some scenarios
+- [ ] When enemy is defeated coordinates still exist and bar updating crashes
+
 # Goals
 
 - [ ] Positioning and movement relative to screen size
@@ -63,7 +65,9 @@ Run using
 
 ### TODO Checklist
 
-- [ ] Weapon class and methods
+- [x] Weapon class and methods
+- [ ] Add more constants, erase magic numbers
+- [ ] Make attack and deflect duration longer
 - [ ] Slot tracking method
 - [ ] Dummy surface
 - [ ] Tilemap
