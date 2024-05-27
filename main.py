@@ -12,7 +12,7 @@ from ui.icons import Icon           # Icon class
 from ui.slots import Slot           # Slot class
 
 # Hanlde keyboard input 
-def handle_events(p, hp_flask):
+def handle_events(p, e, hp_flask):
     for event in pygame.event.get():
         # Quit 
         if event.type == pygame.QUIT: 
@@ -24,6 +24,10 @@ def handle_events(p, hp_flask):
                 p.dash()
             elif event.key == pygame.K_e:
                 hp_flask.refill_stat(p)
+        # Mouse clicks
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                p.attack(e)
 
     # Hold controls
     keys = pygame.key.get_pressed()
@@ -51,14 +55,15 @@ def main():
     p_hp_bar = Bar(120, 20, p.hp, RED)
     p_mana_bar = Bar(120, 50, p.mana, BLUE)
     p_stamina_bar = Bar(120, 80, p.stamina, GREEN)
+    e_hp_bar = Bar(200, SCREEN_HEIGHT - 50, e.hp, RED)
     # Append all sprites 
-    sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar)
+    sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar)
 
     # Game loop
     running = True 
     while running:
         # Handle keyboard input
-        handle_events(p, hp_flask)
+        handle_events(p, e, hp_flask)
 
         p.apply_gravity()
         p.refill_stamina(1)
@@ -68,6 +73,7 @@ def main():
         p_hp_bar.update(p.hp)
         p_mana_bar.update(p.mana)
         p_stamina_bar.update(p.stamina)
+        e_hp_bar.update(e.hp)
 
         # Clear and draw new frame
         screen.fill(BLACK)

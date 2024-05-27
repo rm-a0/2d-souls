@@ -79,3 +79,4 @@ class Player(pygame.sprite.Sprite):
     def attack(self, object):
         if self.equipped_weapon.is_intersecting(object):
             damage = self.equipped_weapon.damage
+            object.take_damage(damage)

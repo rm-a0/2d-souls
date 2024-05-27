@@ -19,3 +19,9 @@ class Enemy(pygame.sprite.Sprite):
         self.mana = ENEMY_MAX_MANA
         self.stamina = ENEMY_MAX_STAMINA
         self.speed = ENEMY_SPEED
+
+    # Decreases hp by certain amount
+    def take_damage(self, damage):
+        self.hp -= damage
+        if self.hp <= 0:
+            self.kill()

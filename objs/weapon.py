@@ -13,4 +13,4 @@ class Weapon(pygame.sprite.Sprite):
 
     # Checks if weapon is intersecting with and object
     def is_intersecting(self, object):
-        return self.rect.collider(obj.rect)
+        return self.rect.colliderect(object.rect)
