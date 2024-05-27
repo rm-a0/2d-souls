@@ -67,10 +67,15 @@ class Player(pygame.sprite.Sprite):
                 self.rect.x -= 200 
 
     # Refills stamina by given amount
-    def refill_stamina(self, amt):
-        if self.stamina + amt <= PLAYER_MAX_STAMINA:
-            self.stamina += amt
+    def refill_stamina(self, amount):
+        if self.stamina + amount <= PLAYER_MAX_STAMINA:
+            self.stamina += amount
 
     # Passes weapon class reference
     def equip_weapon(self, weapon):
         self.equipped_weapon = weapon
+
+    # Deals damage to object that is intersecting with weapon
+    def attack(self, object):
+        if self.equipped_weapon.is_intersecting(object):
+            damage = self.equipped_weapon.damage
