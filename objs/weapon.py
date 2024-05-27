@@ -4,7 +4,7 @@ from constants import *
 class Weapon(pygame.sprite.Sprite):
     def __init__(self, damage, weight, length, width):
         super().__init__()
-        self.image = pygame.Surface((width, length))
+        self.image = pygame.Surface((length, width))
         self.image.fill(RED)
         self.rect = self.image.get_rect()
         self.damage = damage

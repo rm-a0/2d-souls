@@ -57,7 +57,7 @@ def main():
     p_stamina_bar = Bar(120, 80, p.stamina, GREEN)
     e_hp_bar = Bar(200, SCREEN_HEIGHT - 50, e.hp, RED)
     # Append all sprites 
-    sprites = pygame.sprite.Group(p, e, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar)
+    sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar)
 
     # Game loop
     running = True 
@@ -73,7 +73,8 @@ def main():
         p_hp_bar.update(p.hp)
         p_mana_bar.update(p.mana)
         p_stamina_bar.update(p.stamina)
-        e_hp_bar.update(e.hp)
+        if e.hp > 0: 
+            e_hp_bar.update(e.hp)
 
         # Clear and draw new frame
         screen.fill(BLACK)
