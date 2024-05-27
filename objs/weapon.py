@@ -2,14 +2,19 @@ import pygame
 from constants import *
 
 class Weapon(pygame.sprite.Sprite):
-    def __init__(self, x, y, damage, weight):
+    def __init__(self, damage, weight, length, width):
         super().__init__()
-        self.image = pygame.Surface((20, 50))
+        self.image = pygame.Surface((width, length))
         self.image.fill(RED)
         self.rect = self.image.get_rect()
-        self.rect.topleft = (x, y)
         self.damage = damage
         self.weight = weight
+        self.length = length
+        self.width = width
+
+    # Draw weapon on canvas
+    def draw_weapon(self, x, y):
+        self.rect.topleft = (x, y)
 
     # Checks if weapon is intersecting with and object
     def is_intersecting(self, object):

@@ -77,6 +77,7 @@ class Player(pygame.sprite.Sprite):
 
     # Deals damage to object that is intersecting with weapon
     def attack(self, object):
+        self.equipped_weapon.draw_weapon(self.rect.x, self.rect.y)
         if self.equipped_weapon.is_intersecting(object):
             damage = self.equipped_weapon.damage
             object.take_damage(damage)

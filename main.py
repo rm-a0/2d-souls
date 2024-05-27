@@ -47,7 +47,7 @@ def main():
     # Create objects
     p = Player(100, GROUND)
     e = Enemy(SCREEN_WIDTH - 200, GROUND)
-    w = Weapon(120, GROUND, 50, 50)
+    w = Weapon(50, 50, 100, 20)
     p.equip_weapon(w)
     hp_flask = Flask('hp', 5, 100)
     # Create ui
@@ -57,7 +57,7 @@ def main():
     p_stamina_bar = Bar(120, 80, p.stamina, GREEN)
     e_hp_bar = Bar(200, SCREEN_HEIGHT - 50, e.hp, RED)
     # Append all sprites 
-    sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar)
+    sprites = pygame.sprite.Group(p, e, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar)
 
     # Game loop
     running = True 
