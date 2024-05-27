@@ -4,10 +4,10 @@ from constants import *
 class Flask(pygame.sprite.Sprite):
     def __init__(self, flask_type, count, refill_amount): 
         super().__init__()
-        self.flask_type =flask_type 
-        self.max_count =count 
-        self.count =count 
-        self.refill_amount =refill_amount 
+        self.flask_type = flask_type 
+        self.max_count = count 
+        self.count = count 
+        self.refill_amount = refill_amount 
 
     # Refills player stat by certain amount and decrements quantity 
     def refill_stat(self, player):

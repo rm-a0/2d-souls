@@ -12,7 +12,7 @@ from ui.icons import Icon           # Icon class
 from ui.slots import Slot           # Slot class
 
 # Hanlde keyboard input 
-def handle_events(p, e, hp_flask):
+def handle_events(p, e, s1, hp_flask):
     for event in pygame.event.get():
         # Quit 
         if event.type == pygame.QUIT: 
@@ -24,6 +24,7 @@ def handle_events(p, e, hp_flask):
                 p.dash()
             elif event.key == pygame.K_e:
                 hp_flask.refill_stat(p)
+                s1.update_count()
         # Mouse clicks
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
@@ -38,11 +39,14 @@ def handle_events(p, e, hp_flask):
     if keys[pygame.K_SPACE]:
         p.jump()
  
-def main(): 
+def main():
+    pygame.init()
+    pygame.font.init()
     # Screen setup (16:9 aspect ratio)
     screen = pygame.display.set_mode((SCREEN_WIDTH ,SCREEN_HEIGHT))
     pygame.display.set_caption('dev/2d-souls')
     clock = pygame.time.Clock()
+    font = pygame.font.Font(None, 26)
 
     # Create objects
     p = Player(100, GROUND)
@@ -56,14 +60,17 @@ def main():
     p_mana_bar = Bar(120, 50, p.mana, BLUE)
     p_stamina_bar = Bar(120, 80, p.stamina, GREEN)
     e_hp_bar = Bar(200, SCREEN_HEIGHT - 50, e.hp, RED)
+    s1 = Slot(20, GROUND + 20, font)
+    s1.switch_item(hp_flask)
+    s1.update_count()
     # Append all sprites 
-    sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar)
+    sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar, s1)
 
     # Game loop
     running = True 
     while running:
         # Handle keyboard input
-        handle_events(p, e, hp_flask)
+        handle_events(p, e, s1, hp_flask)
 
         p.apply_gravity()
         p.refill_stamina(1)
