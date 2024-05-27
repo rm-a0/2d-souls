@@ -48,7 +48,8 @@ Run using
 | `[L-Shift]`               | Dash                                          |
 | `[L-MButton]`             | Attack                                        |
 | `[R-MButton]`             | Deflect                                       |
-
+| `E`                       | Heal (Will be switched to Use Slot 1)         |
+| `Q`                       | Use Slot 2                                    |
 # Bugs and Issues
 
 - [x] Jumping feels clunky and non responsive in some scenarios
@@ -57,8 +58,8 @@ Run using
 # Goals
 
 - [ ] Positioning and movement relative to screen size
-- [ ] Create basic interface (bars, item slots, icons)
-- [ ] Create classes and methods for game objects
+- [x] Create basic interface (bars, item slots, icons)
+- [x] Create classes and methods for game objects
 - [ ] Create simple AI for enemies
 - [ ] Create refined AI for bosses
 - [ ] Create rebinding menu
@@ -66,7 +67,7 @@ Run using
 ### TODO Checklist
 
 - [x] Weapon class and methods
-- [ ] Add more constants, erase magic numbers
+- [x] Add more constants, erase magic numbers
 - [ ] Make attack and deflect duration longer
 - [ ] Slot tracking method
 - [ ] Dummy surface
