@@ -9,6 +9,11 @@
 - [Bugs](#bugs-and-issues)
 - [License](#license)
 
+# Description
+After executing script window(1336x768) will be created with simple ui and 2 game objects. \
+User interface consists of 3 bars tracking players hp, mana and stamina and 2 slots tracking players equipped items. Another hp bar at the bottom displays hp of second game object. \
+Object on the left (player) is controlled by [keyboard and mouse](#how-to-use). \
+Object on the right (enemy) is dirven by simple "AI" (FSM with lot of conditions).
 # How to Install and Run
 Download or clone this repository
 ```
