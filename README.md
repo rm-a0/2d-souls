@@ -4,9 +4,6 @@
 # Table of Contents
 - [Description](#description)
 - [Installation](#how-to-install-and-run)
-    - [Linux](#linux)
-    - [Windows](#windows)
-    - [MacOS](#macos)
 - [Usage](#how-to-use)
 - [Updates](#updates-and-features)
 - [Bugs](#bugs-and-issues)
@@ -43,19 +40,14 @@ Run using
 | `E`                       | Heal (Will be switched to Use Slot 1)         |
 | `Q`                       | Use Slot 2                                    |
 
-# Bugs and Issues
-- [x] Jumping feels clunky and non responsive in some scenarios
-- [x] When enemy is defeated coordinates still exist and bar updating crashes
-
-# Goals
-- [ ] Positioning and movement relative to screen size
-- [x] Create basic interface (bars, item slots, icons)
-- [x] Create classes and methods for game objects
+# Updates and Features
+- [x] Created basic interface (bars, item slots, icons)
+- [x] Created classes and methods for game objects
 - [ ] Create simple AI for enemies
 - [ ] Create refined AI for bosses
 - [ ] Create rebinding menu
 
-### TODO Checklist
+### TODO
 - [x] Weapon class and methods
 - [x] Add more constants, erase magic numbers
 - [x] Create ui elements and classes
@@ -64,3 +56,9 @@ Run using
 - [ ] Slot tracking method
 - [ ] Dummy surface
 - [ ] Tilemap
+
+# Bugs and Issues
+- [x] Jumping feels clunky and non responsive in some scenarios
+- [x] When enemy is defeated coordinates still exist and bar updating crashes
+
+# License
