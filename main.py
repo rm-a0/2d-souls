@@ -12,7 +12,7 @@ from ui.icons import Icon           # Icon class
 from ui.slots import Slot           # Slot class
 
 # Hanlde keyboard input
-def handle_events(p, e, s1, hp_flask):
+def handle_events(p, e, s1, s2, hp_flask, mana_flask):
     for event in pygame.event.get():
         # Quit 
         if event.type == pygame.QUIT:
@@ -25,6 +25,10 @@ def handle_events(p, e, s1, hp_flask):
             elif event.key == pygame.K_e:
                 hp_flask.refill_stat(p)
                 s1.update_count()
+            elif event.key == pygame.K_q:
+                mana_flask.refill_stat(p)
+                s2.update_count()
+
         # Mouse clicks
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
@@ -57,25 +61,30 @@ def main():
     w = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
     p.equip_weapon(w)
     hp_flask = Flask('hp', 5, 100)
-
-    # Create ui
+    mana_flask = Flask('mana', 2, 40)
+    # Icons
     ico = Icon(20, 20)
+    # Bars
     p_hp_bar = Bar(120, 20, p.hp, RED)
     p_mana_bar = Bar(120, 50, p.mana, BLUE)
     p_stamina_bar = Bar(120, 80, p.stamina, GREEN)
     e_hp_bar = Bar(200, SCREEN_HEIGHT - 50, e.hp, RED)
+    # Slots
     s1 = Slot(20, GROUND + 20, font)
     s1.switch_item(hp_flask)
     s1.update_count()
+    s2 = Slot(80, GROUND + 20, font)
+    s2.switch_item(mana_flask)
+    s2.update_count()
 
     # Append all sprites 
-    sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar, s1)
+    sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar, s1, s2)
 
     # Game loop
     running = True 
     while running:
         # Handle keyboard input
-        handle_events(p, e, s1, hp_flask)
+        handle_events(p, e, s1, s2, hp_flask, mana_flask)
 
         p.apply_gravity()
         p.refill_stamina(1)
