@@ -1,9 +1,18 @@
 # Overview
+2D minigame inspired by Dark Souls, Sekiro and Hollow Knight in Metroidvania style.
 
-2D minigame inspired by Dark Souls, Sekiro and Hollow Knight in Metroidvania style. \
+# Table of Contents
+- [Description](#description)
+- [Installation](#how-to-install-and-run)
+    - [Linux](#linux)
+    - [Windows](#windows)
+    - [MacOS](#macos)
+- [Usage](#how-to-use)
+- [Updates](#updates-and-features)
+- [Bugs](#bugs-and-issues)
+- [License](#license)
 
 # How to Install and Run
-
 Download or clone this repository
 ```
 git clone https://github.com/rm-a0/2d-souls
@@ -16,25 +25,8 @@ Run using
 ```
 ./main.py
 ```
-> [!NOTE]
-> You may run into relative import beyond toplevel package. \
-> To fix this either change your PYTHONPATH (not recommended). \
-> Linux
-> ```
-> export PYTHONPATH=’path/to/directory’
-> ```
-> Windows
-> ```
-> SET PYTHONPATH=’path/to/directory’
-> ```
-> Or you can add this into the files.
-> ```python
-> import sys
-> sys.path.insert(0, '/path/to/module/directory')
-> ```
 
 # How to use
-
 > [!NOTE]
 > Rebinding is not implemented yet
 > You can rebind keys manually in main.py
@@ -50,13 +42,12 @@ Run using
 | `[R-MButton]`             | Deflect                                       |
 | `E`                       | Heal (Will be switched to Use Slot 1)         |
 | `Q`                       | Use Slot 2                                    |
-# Bugs and Issues
 
+# Bugs and Issues
 - [x] Jumping feels clunky and non responsive in some scenarios
 - [x] When enemy is defeated coordinates still exist and bar updating crashes
 
 # Goals
-
 - [ ] Positioning and movement relative to screen size
 - [x] Create basic interface (bars, item slots, icons)
 - [x] Create classes and methods for game objects
@@ -65,11 +56,11 @@ Run using
 - [ ] Create rebinding menu
 
 ### TODO Checklist
-
 - [x] Weapon class and methods
 - [x] Add more constants, erase magic numbers
 - [x] Create ui elements and classes
 - [ ] Make attack and deflect duration longer
+- [x] Boss AI prototype
 - [ ] Slot tracking method
 - [ ] Dummy surface
 - [ ] Tilemap
