@@ -7,7 +7,6 @@
 - [Usage](#how-to-use)
 - [Updates](#updates-and-features)
 - [Bugs](#bugs-and-issues)
-- [License](#license)
 
 # Description
 After executing script window(1336x768) will be created with simple ui and 2 game objects. \
