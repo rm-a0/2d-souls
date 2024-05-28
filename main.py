@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import pygame
 import sys
+import math
 
 from constants import *             # Constant variables
 from objs.player import Player      # Player class
@@ -10,6 +11,12 @@ from objs.weapon import Weapon      # Weapon class
 from ui.bars import Bar             # Bar classes
 from ui.icons import Icon           # Icon class
 from ui.slots import Slot           # Slot class
+
+# Euclidean distance formula for 2d space
+def calc_dist(coord1, coord2):
+    x1, y1 = coord1
+    x2, y2 = coord2
+    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
 # Hanlde keyboard input
 def handle_events(p, e, s1, s2, hp_flask, mana_flask):
@@ -86,9 +93,17 @@ def main():
         # Handle keyboard input
         handle_events(p, e, s1, s2, hp_flask, mana_flask)
 
+        # Calculate distance
+        ep_dist = calc_dist(p.rect.center, e.rect.center)
+
+        # Handle player
         p.apply_gravity()
         p.refill_stamina(1)
         p.update()
+
+        # Handle enemy
+        e.update(ep_dist)
+        e.perform_action()
 
         # Update ui
         p_hp_bar.update(p.hp)

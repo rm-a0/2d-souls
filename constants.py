@@ -9,9 +9,10 @@ GREY = (110, 110, 110)
 RED = (180, 0, 0)
 GREEN = (0, 170, 0)
 BLUE = (0, 0, 200)
+YELLOW = (255, 255, 0)
 
 # Dont change (gravity doesnt work well with lower fps)
-FPS = 120   
+FPS = 120
 
 # GENERAL CONSTS
 LEFT = 1
@@ -60,3 +61,7 @@ WEAPON_WIDTH = 20
 # Stats
 WEAPON_DAMAGE = 50
 WEAPON_WEIGHT = 50
+# States
+IDLE = 0
+CHASE = 1
+ATTACK = 2

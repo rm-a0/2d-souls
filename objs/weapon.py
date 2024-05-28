@@ -5,7 +5,7 @@ class Weapon(pygame.sprite.Sprite):
     def __init__(self, damage, weight, length, width):
         super().__init__()
         self.image = pygame.Surface((length, width))
-        self.image.fill(RED)
+        self.image.fill(YELLOW)
         self.rect = self.image.get_rect()
         self.damage = damage
         self.weight = weight
