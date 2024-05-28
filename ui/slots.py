@@ -23,4 +23,4 @@ class Slot(pygame.sprite.Sprite):
         if self.item:
             if hasattr(self.item, "count"):
                 count_txt = self.font.render(str(self.item.count), True, WHITE)
-                self.image.blit(count_txt, (self.rect.width - 25, self.rect.height - 25))
+                self.image.blit(count_txt, (self.rect.width - 15, self.rect.height - 25))
