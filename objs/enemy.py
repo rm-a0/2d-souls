@@ -18,6 +18,7 @@ class Enemy(pygame.sprite.Sprite):
         self.state = IDLE
         # Flags
         self.stop_duration = 0
+        self.charge_duration = 0
         # Items
         self.equipped_weapon = None
 
@@ -35,16 +36,16 @@ class Enemy(pygame.sprite.Sprite):
     def update(self, distance):
         if self.stop_duration > 0:
             self.stop_duration -= 1
+
         if self.state == IDLE:
             if distance < 400:
                 self.state = CHASE
             if distance < 100:
                 self.state = ATTACK
+                self.charge_duration = 100
 
         elif self.state == ATTACK:
-            if distance < 100:
-                self.state = ATTACK
-            elif distance > 100:
+            if distance > 100:
                 self.state = CHASE
 
         elif self.state == CHASE:
@@ -52,6 +53,7 @@ class Enemy(pygame.sprite.Sprite):
                 self.state = IDLE 
             elif distance < 100:
                 self.state = ATTACK
+                self.charge_duration = 100
             elif distance < 400:
                 self.state = CHASE
 
@@ -74,6 +76,12 @@ class Enemy(pygame.sprite.Sprite):
         if self.stop_duration > 0:
             self.state = IDLE
             return
+
+        if self.charge_duration > 0:
+            self.state == ATTACK
+            self.charge_duration -= 1
+            return
+
         self.stop_duration = 120
         if direction == RIGHT:
             self.equipped_weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
