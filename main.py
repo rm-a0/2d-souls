@@ -74,8 +74,10 @@ def main():
     # Create objects
     p = Player(100, GROUND)
     e = Enemy(SCREEN_WIDTH - 200, GROUND)
-    w = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
-    p.equip_weapon(w)
+    w1 = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
+    w2 = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
+    p.equip_weapon(w1)
+    e.equip_weapon(w2)
     hp_flask = Flask('hp', 5, 100)
     mana_flask = Flask('mana', 2, 40)
     # Icons
@@ -94,7 +96,7 @@ def main():
     s2.update_count()
 
     # Append all sprites 
-    sprites = pygame.sprite.Group(p, e, w, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar, s1, s2)
+    sprites = pygame.sprite.Group(p, e, w1, w2, ico, p_hp_bar, p_mana_bar, p_stamina_bar, e_hp_bar, s1, s2)
 
     # Game loop
     running = True 
@@ -113,12 +115,13 @@ def main():
 
         # Handle enemy
         e.update(dist)
-        e.perform_action(direction)
+        e.perform_action(direction, p)
 
         # Update ui
-        p_hp_bar.update(p.hp)
-        p_mana_bar.update(p.mana)
-        p_stamina_bar.update(p.stamina)
+        if p.hp > 0:
+            p_hp_bar.update(p.hp)
+            p_mana_bar.update(p.mana)
+            p_stamina_bar.update(p.stamina)
         if e.hp > 0: 
             e_hp_bar.update(e.hp)
 

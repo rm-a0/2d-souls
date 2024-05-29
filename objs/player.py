@@ -33,6 +33,8 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         if self.stop_duration > 0:
             self.stop_duration -= 1
+        if self.deflect_duration > 0:
+            self.deflect_duration -= 1
         self.rect.y += self.vel_y
         self.rect.x += self.vel_x
 
@@ -82,8 +84,14 @@ class Player(pygame.sprite.Sprite):
     def equip_weapon(self, weapon):
         self.equipped_weapon = weapon
 
+    # Decreases hp by given amount
+    def take_damage(self, damage):
+        self.hp -= damage
+        if self.hp <= 0:
+            self.kill()
+
     # Deals damage to object that is intersecting with weapon
-    def attack(self, object):
+    def attack(self, obj):
         if self.stamina >= ATK_S_COST:
             self.stamina -= ATK_S_COST
             self.stop_duration = 9
@@ -91,13 +99,13 @@ class Player(pygame.sprite.Sprite):
                 self.equipped_weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
             else:
                 self.equipped_weapon.draw_weapon(self.rect.x - self.equipped_weapon.length, self.rect.y + PLAYER_HEIGHT/2)
-            if self.equipped_weapon.is_intersecting(object):
+            if self.equipped_weapon.is_intersecting(obj):
                 damage = self.equipped_weapon.damage
-                object.take_damage(damage)
+                obj.take_damage(damage)
 
     # Deflects enemy attack
     def counter(self):
         if self.stamina >= CTR_S_COST:
             self.stamina -= CTR_S_COST
-            self.stop_duration = FPS
-            self.deflect_duration = FPS 
+            self.stop_duration = CTR_DURATION
+            self.deflect_duration = CTR_DURATION 

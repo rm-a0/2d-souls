@@ -12,6 +12,7 @@ BLUE = (0, 0, 200)
 YELLOW = (255, 255, 0)
 
 # Dont change (gravity doesnt work well with lower fps)
+# Duration numbers are relative to fps (fix in the future)
 FPS = 120
 
 # GENERAL CONSTS
@@ -46,6 +47,10 @@ DASH_DIST = 100
 JMP_S_COST = 100
 ATK_S_COST = 100
 CTR_S_COST = 30
+# Durations
+# Numbers are relative to FPS
+CTR_DURATION = 60
+PERFECT_CTR = 10
 
 # ENEMY CONST
 # Geometry
