@@ -21,9 +21,10 @@ class Player(pygame.sprite.Sprite):
         self.speed = PLAYER_SPEED
         self.jump_speed = JUMP_SPEED
         # Flags
-        self.stop_duration = 0
         self.jumping = False
         self.facing = RIGHT
+        self.deflect_duration = 0 
+        self.stop_duration = 0
         # Items
         self.equipped_weapon = None
 
@@ -93,3 +94,10 @@ class Player(pygame.sprite.Sprite):
             if self.equipped_weapon.is_intersecting(object):
                 damage = self.equipped_weapon.damage
                 object.take_damage(damage)
+
+    # Deflects enemy attack
+    def counter(self):
+        if self.stamina >= CTR_S_COST:
+            self.stamina -= CTR_S_COST
+            self.stop_duration = FPS
+            self.deflect_duration = FPS 

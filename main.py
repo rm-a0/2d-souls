@@ -47,6 +47,8 @@ def handle_events(p, e, s1, s2, hp_flask, mana_flask):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 p.attack(e)
+            elif event.button == 3:
+                p.counter()
 
     # Hold controls
     keys = pygame.key.get_pressed()
