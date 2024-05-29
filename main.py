@@ -122,8 +122,14 @@ def main():
             p_hp_bar.update(p.hp)
             p_mana_bar.update(p.mana)
             p_stamina_bar.update(p.stamina)
+        else:
+            print("You lost")
+            break
         if e.hp > 0: 
             e_hp_bar.update(e.hp)
+        else:
+            print("You won")
+            break
 
         # Clear and draw new frame
         screen.fill(BLACK)
