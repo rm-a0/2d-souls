@@ -75,7 +75,7 @@ def main():
     p = Player(100, GROUND)
     e = Enemy(SCREEN_WIDTH - 200, GROUND)
     w1 = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
-    w2 = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
+    w2 = Weapon(WEAPON_DAMAGE*2, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
     p.equip_weapon(w1)
     e.equip_weapon(w2)
     hp_flask = Flask('hp', 5, 100)

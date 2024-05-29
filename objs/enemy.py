@@ -86,8 +86,10 @@ class Enemy(pygame.sprite.Sprite):
 
         self.stop_duration = 120
         if direction == RIGHT:
+            self.rect.x += self.speed*50
             self.equipped_weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
         else:
+            self.rect.x -= self.speed*50
             self.equipped_weapon.draw_weapon(self.rect.x - self.equipped_weapon.length, self.rect.y + PLAYER_HEIGHT/2)
         if self.equipped_weapon.is_intersecting(obj):
             if obj.deflect_duration > 0:
