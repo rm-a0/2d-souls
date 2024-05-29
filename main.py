@@ -18,6 +18,13 @@ def calc_dist(coord1, coord2):
     x2, y2 = coord2
     return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
+# Returns direction of 2objects
+def calc_dir(x1, x2):
+    if x1 > x2:
+        return RIGHT
+    else:
+        return LEFT
+
 # Hanlde keyboard input
 def handle_events(p, e, s1, s2, hp_flask, mana_flask):
     for event in pygame.event.get():
@@ -94,7 +101,8 @@ def main():
         handle_events(p, e, s1, s2, hp_flask, mana_flask)
 
         # Calculate distance
-        ep_dist = calc_dist(p.rect.center, e.rect.center)
+        dist = calc_dist(p.rect.center, e.rect.center)
+        direction = calc_dir(p.rect.x, e.rect.x)
 
         # Handle player
         p.apply_gravity()
@@ -102,8 +110,8 @@ def main():
         p.update()
 
         # Handle enemy
-        e.update(ep_dist)
-        e.perform_action()
+        e.update(dist)
+        e.perform_action(direction)
 
         # Update ui
         p_hp_bar.update(p.hp)

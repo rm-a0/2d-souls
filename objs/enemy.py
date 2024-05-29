@@ -49,20 +49,23 @@ class Enemy(pygame.sprite.Sprite):
         self.vel_y = 0
 
     # Moves into given direction
-    def chase(self):
-        self.rect.x -= self.speed
+    def chase(self, direction):
+        if direction == LEFT:
+            self.rect.x -= self.speed
+        else:
+            self.rect.x += self.speed
 
     # Attacks an object
-    def attack(self):
+    def attack(self, direction):
         self.vel_x = 0
         self.vel_y = 0
 
     # Deecides which method should be executed based on state
-    def perform_action(self):
+    def perform_action(self, direction):
         if self.state == ATTACK:
-            self.attack()
+            self.attack(direction)
         elif self.state == CHASE:
-            self.chase()
+            self.chase(direction)
         elif self.state == IDLE:
             self.idle()
 
