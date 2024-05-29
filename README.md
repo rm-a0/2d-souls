@@ -45,24 +45,21 @@ Run using
 | `Q`                       | Use Slot 2                                    |
 
 # Updates and Features
-- [x] Created basic interface (bars, item slots, icons)
-- [x] Created classes and methods for game objects
-- [ ] Create simple AI for enemies
-- [ ] Create refined AI for bosses
-- [ ] Create rebinding menu
-
-### TODO
+- [x] Basic interface (bars, item slots, icons)
+- [x] Classes and methods for game objects
 - [x] Weapon class and methods
-- [x] Add more constants, erase magic numbers
-- [x] Create ui elements and classes
-- [ ] Make attack and deflect duration longer
-- [x] Boss AI prototype
-- [ ] Slot tracking method
+- [x] More constants, erase magic numbers
+- [x] Refined UI elements and classes
+- [x] Slot tracking method
+- [x] Attacks and deflects stop movement briefly
+- [x] Added enemy AI prototype
+- [x] Added simple AI for enemies
+- [ ] Weapon hitbox refinement
+- [ ] Windup for enemy attack
+- [ ] Secondary attack for enemies
 - [ ] Dummy surface
 - [ ] Tilemap
 
 # Bugs and Issues
 - [x] Jumping feels clunky and non responsive in some scenarios
 - [x] When enemy is defeated coordinates still exist and bar updating crashes
-
-# License
