@@ -23,11 +23,11 @@ Upon executing the script, a window with a resolution of 1336x768 is created, fe
 
 ## Enemies
 In the `/objs` folder, there are two types of enemies:
-- **Simple Enemy** (`/objs/enemy.py`):
+- **Simple Enemy** `/objs/enemy.py`:
   - Features: Three states and one attack pattern. Predictable and easy to defeat.
   - ![enemy-fsm](fsm/enemy-fsm.jpg)
 
-- **Boss Enemy** (`/objs/boss.py`):
+- **Boss Enemy** `/objs/boss.py`:
   - Features: Multiple states, various attack types, driven by random number generators, and a more complex FSM.
   - ![boss-fsm](fsm/boss-fsm.jpg)
 
