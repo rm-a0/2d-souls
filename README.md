@@ -75,6 +75,7 @@ Run using
 - [x] Added enemy AI prototype
 - [x] Added simple AI for enemies
 - [x] Windup for enemy attack
+- [ ] Refactored, cleaned up and modularized code
 - [ ] Refined boss AI 
 - [ ] Dummy surface
 - [ ] Tilemap
@@ -82,3 +83,4 @@ Run using
 # Bugs and Issues
 - [x] Jumping feels clunky and non responsive in some scenarios
 - [x] When enemy is defeated coordinates still exist and bar updating crashes
+- [ ] Code is ugly and messy
