@@ -9,16 +9,29 @@
 - [Bugs](#bugs-and-issues)
 
 # Description
-After executing script window(1336x768) will be created with simple ui and 2 game objects. \
-User interface consists of 3 bars tracking players hp, mana and stamina and 2 slots tracking players equipped items. Another hp bar at the bottom displays hp of second game object. \
-Object on the left (player) is controlled by [keyboard and mouse](#how-to-use). \
-Object on the right (enemy) is dirven by simple "AI" (FSM with lot of conditions).
 
-In __/objs__ folder there are 2 types of enemies.
- - /objs/enemy.py  - simple enemy with 3 states and one type of attack pattern. Very predictable and easy to defeat. \
- ![enemy-fsm](fsm/enemy-fsm.jpg)
- - /objs/boss.py   - refined enemy with multiple states, multiple types of attacks, driven by random number generators and more complex FSM. \
- ![boss-fsm](fsm/boss-fsm.jpg)
+Upon executing the script, a window with a resolution of 1336x768 is created, featuring a simple user interface and two game objects.
+
+### User Interface
+- **Player Stats**: Three bars tracking the player's health (HP), mana, and stamina.
+- **Equipment Slots**: Two slots displaying the player's equipped items.
+- **Enemy Health**: A health bar at the bottom showing the enemy's HP.
+
+### Controls
+- **Player (left object)**: Controlled via keyboard and mouse inputs.
+- **Enemy (right object)**: Driven by a simple AI using a finite state machine (FSM) with multiple conditions.
+
+## Enemies
+In the `/objs` folder, there are two types of enemies:
+- **Simple Enemy** (`/objs/enemy.py`):
+  - Features: Three states and one attack pattern. Predictable and easy to defeat.
+  - ![enemy-fsm](fsm/enemy-fsm.jpg)
+
+- **Boss Enemy** (`/objs/boss.py`):
+  - Features: Multiple states, various attack types, driven by random number generators, and a more complex FSM.
+  - ![boss-fsm](fsm/boss-fsm.jpg)
+
+This project serves as a foundation for developing and experimenting with game mechanics and AI behavior.
 
 # How to Install and Run
 Download or clone this repository
@@ -48,8 +61,8 @@ Run using
 | `[L-Shift]`               | Dash                                          |
 | `[L-MButton]`             | Attack                                        |
 | `[R-MButton]`             | Deflect                                       |
-| `E`                       | Heal (Will be switched to Use Slot 1)         |
-| `Q`                       | Use Slot 2                                    |
+| `E`                       | Use Slot 1 (Heal)                             |
+| `Q`                       | Use Slot 2 (Refill mana)                      |
 
 # Updates and Features
 - [x] Basic interface (bars, item slots, icons)
