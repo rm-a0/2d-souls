@@ -45,6 +45,8 @@ class Enemy(pygame.sprite.Sprite):
                 self.charge_duration = 100
 
         elif self.state == ATTACK:
+            if self.charge_duration >= 0:
+                return
             if distance > 100:
                 self.state = CHASE
 
