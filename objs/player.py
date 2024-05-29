@@ -21,13 +21,17 @@ class Player(pygame.sprite.Sprite):
         self.speed = PLAYER_SPEED
         self.jump_speed = JUMP_SPEED
         # Flags
+        self.stop_duration = 0
         self.jumping = False
         self.facing = RIGHT
         # Items
         self.equipped_weapon = None
 
     # Updates x and y position based on velocity
+    # Decrements stop duration every game cycle
     def update(self):
+        if self.stop_duration > 0:
+            self.stop_duration -= 1
         self.rect.y += self.vel_y
         self.rect.x += self.vel_x
 
@@ -42,13 +46,15 @@ class Player(pygame.sprite.Sprite):
 
     # Increases x coordinate
     def move_right(self):
-        self.rect.x += self.speed
-        self.facing = RIGHT
+        if self.stop_duration <= 0:
+            self.rect.x += self.speed
+            self.facing = RIGHT
 
     # Decreases x coordinate
     def move_left(self):
-        self.rect.x -= self.speed
-        self.facing = LEFT
+        if self.stop_duration <= 0:
+            self.rect.x -= self.speed
+            self.facing = LEFT
 
     # Sets flag and decreases y velocity
     def jump(self):
@@ -79,6 +85,7 @@ class Player(pygame.sprite.Sprite):
     def attack(self, object):
         if self.stamina >= ATK_S_COST:
             self.stamina -= ATK_S_COST
+            self.stop_duration = 9
             if self.facing == RIGHT:
                 self.equipped_weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
             else:
