@@ -26,21 +26,19 @@ class Enemy(pygame.sprite.Sprite):
     # FSM for changing changing states
     def update(self, distance):
         if self.state == IDLE:
-            if distance < 10:
-                self.state = ATTACK
-            elif distance < 50:
+            if distance < 400:
                 self.state = CHASE
 
         elif self.state == ATTACK:
-            if distance < 10:
+            if distance < 100:
                 self.state = ATTACK
-            elif distance > 50:
+            elif distance > 100:
                 self.state = CHASE
 
         elif self.state == CHASE:
-            if distance > 50:
+            if distance > 400:
                 self.state = IDLE 
-            elif distance > 10:
+            elif distance < 400:
                 self.state = CHASE
 
     # Resets velocity
