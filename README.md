@@ -12,13 +12,14 @@
 After executing script window(1336x768) will be created with simple ui and 2 game objects. \
 User interface consists of 3 bars tracking players hp, mana and stamina and 2 slots tracking players equipped items. Another hp bar at the bottom displays hp of second game object. \
 Object on the left (player) is controlled by [keyboard and mouse](#how-to-use). \
-Object on the right (enemy) is dirven by simple "AI" (FSM with lot of conditions). \
+Object on the right (enemy) is dirven by simple "AI" (FSM with lot of conditions).
 
-In __/objs__ folder there are 2 types of enemies. \
+In __/objs__ folder there are 2 types of enemies.
  - /objs/enemy.py  - simple enemy with 3 states and one type of attack pattern. Very predictable and easy to defeat. \
  ![enemy-fsm](fsm/enemy-fsm.jpg)
  - /objs/boss.py   - refined enemy with multiple states, multiple types of attacks, driven by random number generators and more complex FSM. \
  ![boss-fsm](fsm/boss-fsm.jpg)
+
 # How to Install and Run
 Download or clone this repository
 ```
@@ -60,9 +61,8 @@ Run using
 - [x] Attacks and deflects stop movement briefly
 - [x] Added enemy AI prototype
 - [x] Added simple AI for enemies
-- [ ] Weapon hitbox refinement
-- [ ] Windup for enemy attack
-- [ ] Secondary attack for enemies
+- [x] Windup for enemy attack
+- [ ] Refined boss AI 
 - [ ] Dummy surface
 - [ ] Tilemap
 
