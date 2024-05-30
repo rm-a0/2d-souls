@@ -22,10 +22,11 @@ Upon executing the script, a window with a resolution of 1336x768 is created, fe
 
 ## Game design
 Every element (hp bar, item slot, player, ...) has its own class with different methods. Classes were designed to be reuseable and readable at the same time. \
-The `/ui` directory consists of classes used for creating and maintaining user interface. \
+The `/ui` directory consists of classes used for creating and maintaining user interface. 
 - `/ui/bars.py` - bars tracking and displaying different stats
 - `/ui/icons.py` - icons displaying items or status effects
-- `/ui/slots.py` - slots displaying and tracking players equipped items \
+- `/ui/slots.py` - slots displaying and tracking players equipped items
+
 The `/objs` directory consists of classes representing game objects. 
 - `/objs/player.py` - object controlled by keyboard and mouse
 - `/objs/enemy.py` - bject controlled by FSM
