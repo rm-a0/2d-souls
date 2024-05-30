@@ -16,27 +16,6 @@ class Enemy(Entity):
         if self.hp <= 0:
             self.kill()
 
-    # FSM for changing changing states
-    def update(self, dist):
-        if self.state == IDLE:
-            if dist < 1000:
-                self.state = CHASE
-
-        elif self.state == CHASE:
-            if dist < 100:
-                self.state = CHARGE
-                self.charge = 100
-            elif dist > 1000:
-                self.state = IDLE
-
-        elif self.state == CHARGE:
-            if self.charge <= 0:
-                self.state = ATTACK
-
-        elif self.state == STUN:
-            if self.stun <= 0:
-                self.state = IDLE
-
     # Resets velocity
     def idle(self):
         self.vel_x = 0
@@ -69,6 +48,27 @@ class Enemy(Entity):
 
         else:
             self.state = IDLE
+
+    # FSM for changing changing states
+    def update(self, dist):
+        if self.state == IDLE:
+            if dist < 1000:
+                self.state = CHASE
+
+        elif self.state == CHASE:
+            if dist < 100:
+                self.state = CHARGE
+                self.charge = 100
+            elif dist > 1000:
+                self.state = IDLE
+
+        elif self.state == CHARGE:
+            if self.charge <= 0:
+                self.state = ATTACK
+
+        elif self.state == STUN:
+            if self.stun <= 0:
+                self.state = IDLE
 
     # Decides which method should be executed based on state
     def perform_action(self, direction, obj):

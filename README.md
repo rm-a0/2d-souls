@@ -96,3 +96,4 @@ Run using
 - [x] Jumping feels clunky and non responsive in some scenarios
 - [x] When enemy is defeated coordinates still exist and bar updating crashes
 - [ ] Code is ugly and messy
+- [ ] Enemy doesnt deal damage when player is inside him
