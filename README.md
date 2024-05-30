@@ -31,8 +31,8 @@ The `/objs` directory consists of classes representing game objects.
 - `/objs/player.py` - object controlled by keyboard and mouse
 - `/objs/enemy.py` - object controlled by FSM
 - `/objs/weapon.py` - object used for dealing damage
-- `/objs/boss.py` - refined object controlled by FSM \
-\
+- `/objs/boss.py` - refined object controlled by FSM
+
 Every complex object (player, enemy, ...) is designed using simple FSM with hierarchical states (every state has substates and different conditional branches). 
 
 ### Player
