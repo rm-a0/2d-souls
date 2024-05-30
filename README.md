@@ -9,26 +9,37 @@
 - [Bugs](#bugs-and-issues)
 
 # Description
-
 Upon executing the script, a window with a resolution of 1336x768 is created, featuring a simple user interface and two game objects.
 
 ### User Interface
-- **Player Stats**: Three bars tracking the player's health (HP), mana, and stamina.
-- **Equipment Slots**: Two slots displaying the player's equipped items.
-- **Enemy Health**: A health bar at the bottom showing the enemy's HP.
+- **Player Stats**: Three bars tracking the players hp, mana, and stamina.
+- **Equipment Slots**: Two slots displaying players equipped items.
+- **Enemy Health**: A health bar at the bottom showing the enemy's hp.
 
 ### Controls
 - **Player (left object)**: Controlled via keyboard and mouse inputs.
 - **Enemy (right object)**: Driven by a simple AI using a finite state machine (FSM) with multiple conditions.
 
-## Enemies
-In the `/objs` folder, there are two types of enemies:
+## Game design
+Every element (hp bar, item slot, player, ...) has its own class with different methods. Classes were designed to be reuseable and readable at the same time. \
+The `/ui` directory consists of classes used for creating and maintaining user interface. \
+- `/ui/bars.py` - bars tracking and displaying different stats
+- `/ui/icons.py` - icons displaying items or status effects
+- `/ui/slots.py` - slots displaying and tracking players equipped items
+The `/objs` directory consists of classes representing game objects. \
+- `/objs/player.py` - object controlled by keyboard and mouse
+- `/objs/enemy.py` - bject controlled by FSM
+- `/objs/weapon.py` - object used for dealing damage
+- `/objs/boss.py` - refined object controlled by FSM
+Every complex object (player, enemy, ...) is designed using simple FSM with hierarchical states (every state has substates and different conditional branches). 
+
+### Player
+
+### Enemies
 - **Simple Enemy** `/objs/enemy.py`:
-  - Features: Three states and one attack pattern. Predictable and easy to defeat.
   - ![enemy-fsm](fsm/enemy-fsm.jpg)
 
 - **Boss Enemy** `/objs/boss.py`:
-  - Features: Multiple states, various attack types, driven by random number generators, and a more complex FSM.
   - ![boss-fsm](fsm/boss-fsm.jpg)
 
 This project serves as a foundation for developing and experimenting with game mechanics and AI behavior.
