@@ -35,14 +35,14 @@ The `/objs` directory consists of classes representing game objects.
 Every complex object (player, enemy, ...) is designed using simple FSM with hierarchical states (every state has substates and different conditional branches). 
 
 ### Player
-  - ![player-fsm](fsm/player-fsm.jpg)
+  ![player-fsm](fsm/player-fsm.jpg)
 
 ### Enemies
 - **Simple Enemy** `/objs/enemy.py`:
-  - ![enemy-fsm](fsm/enemy-fsm.jpg)
+    ![enemy-fsm](fsm/enemy-fsm.jpg)
 
 - **Boss Enemy** `/objs/boss.py`:
-  - ![boss-fsm](fsm/boss-fsm.jpg)
+    ![boss-fsm](fsm/boss-fsm.jpg)
 
 # How to Install and Run
 Download or clone this repository
