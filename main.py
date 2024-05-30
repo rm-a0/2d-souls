@@ -3,17 +3,17 @@ import pygame
 import sys
 import math
 
-from constants import *             # Constant variables
+from constants import *                     # Constant variables
 
-from objs.player import Player      # Player child class
-from objs.enemy import Enemy        # Enemy child class
+from objs.obj_factory import ObjFactory     # Object factory class
+from objs.player import Player              # Player class
+from objs.enemy import Enemy                # Enemy class
+from objs.consumable import Flask           # Flask class
+from objs.weapon import Weapon              # Weapon class
 
-from objs.consumable import Flask   # Flask class
-from objs.weapon import Weapon      # Weapon class
-
-from ui.bars import Bar             # Bar classes
-from ui.icons import Icon           # Icon class
-from ui.slots import Slot           # Slot class
+from ui.bars import Bar                     # Bar classes
+from ui.icons import Icon                   # Icon class
+from ui.slots import Slot                   # Slot class
 
 # Euclidean distance formula for 2d space
 def calc_dist(coord1, coord2):
@@ -75,25 +75,8 @@ def main():
     font = pygame.font.Font(None, 26)
 
     # Create objects
-    p = Player(100,
-               GROUND,
-               PLAYER_WIDTH,
-               PLAYER_HEIGHT,
-               GREEN,
-               PLAYER_MAX_HP,
-               PLAYER_SPEED,
-               PLAYER_MAX_MANA,
-               PLAYER_MAX_STAMINA,
-               JUMP_SPEED
-               )
-    e = Enemy(SCREEN_WIDTH - 200,
-              GROUND,
-              ENEMY_WIDTH,
-              ENEMY_HEIGHT,
-              RED,
-              ENEMY_MAX_HP,
-              ENEMY_SPEED
-              )
+    p = ObjFactory.create_player()
+    e = ObjFactory.create_enemy()
     w1 = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
     w2 = Weapon(WEAPON_DAMAGE*2, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
     p.equip_weapon(w1)
