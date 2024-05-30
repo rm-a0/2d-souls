@@ -1,32 +1,21 @@
 import pygame
 from constants import *
+from objs.entity import Entity
 
-class Player(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        super().__init__()
-        self.image = pygame.Surface((PLAYER_WIDTH, PLAYER_HEIGHT))
-        self.image.fill(GREEN)
-        self.rect = self.image.get_rect()
-        self.rect.topleft = (x, y)
-        # Physics
-        self.vel_x = 0
-        self.vel_y = 0
-        # Player stats
-        self.max_hp = PLAYER_MAX_HP
-        self.max_mana = PLAYER_MAX_MANA
-        self.max_stamina = PLAYER_MAX_STAMINA
-        self.hp = PLAYER_MAX_HP
-        self.mana = PLAYER_MAX_MANA
-        self.stamina = PLAYER_MAX_STAMINA
-        self.speed = PLAYER_SPEED
-        self.jump_speed = JUMP_SPEED
+class Player(Entity):
+    def __init__(self, x, y, width, height, color, hp, speed, mana, stamina, jspeed):
+        super().__init__(x, y, width, height, color, hp, speed)
+        # Additional stats
+        self.max_stamina = stamina
+        self.stamina = stamina
+        self.max_mana = mana 
+        self.mana = mana 
+        self.jump_speed = jspeed
         # Flags
         self.jumping = False
         self.facing = RIGHT
         self.deflect_duration = 0 
         self.stop_duration = 0
-        # Items
-        self.equipped_weapon = None
 
     # Updates x and y position based on velocity
     # Decrements stop duration every game cycle
@@ -79,10 +68,6 @@ class Player(pygame.sprite.Sprite):
     def refill_stamina(self, amount):
         if self.stamina + amount <= PLAYER_MAX_STAMINA:
             self.stamina += amount
-
-    # Passes weapon class reference
-    def equip_weapon(self, weapon):
-        self.equipped_weapon = weapon
 
     # Decreases hp by given amount
     def take_damage(self, damage):

@@ -75,7 +75,17 @@ def main():
     font = pygame.font.Font(None, 26)
 
     # Create objects
-    p = Player(100, GROUND)
+    p = Player(100,
+               GROUND,
+               PLAYER_WIDTH,
+               PLAYER_HEIGHT,
+               GREEN,
+               PLAYER_MAX_HP,
+               PLAYER_SPEED,
+               PLAYER_MAX_MANA,
+               PLAYER_MAX_STAMINA,
+               JUMP_SPEED
+               )
     e = Enemy(SCREEN_WIDTH - 200,
               GROUND,
               ENEMY_WIDTH,
