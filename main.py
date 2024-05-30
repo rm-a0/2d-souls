@@ -80,23 +80,21 @@ def main():
     e = ObjFactory.create_enemy()
     w1 = ObjFactory.create_weapon()
     w2 = ObjFactory.create_weapon()
-
     p.equip_weapon(w1)
     e.equip_weapon(w2)
     hp_flask = ObjFactory.create_hp_flask(5)
     mana_flask = ObjFactory.create_mana_flask(2)
-    # Icons
-    ico = Icon(20, 20)
-    # Bars
-    p_hp_bar = Bar(120, 20, p.hp, RED)
-    p_mana_bar = Bar(120, 50, p.mana, BLUE)
-    p_stamina_bar = Bar(120, 80, p.stamina, GREEN)
-    e_hp_bar = Bar(200, SCREEN_HEIGHT - 50, e.hp, RED)
-    # Slots
-    s1 = Slot(20, GROUND + 20, font)
+
+    # Create UI
+    ico = UiFactory.create_main_icon() 
+    p_hp_bar = UiFactory.create_player_hp_bar(p)
+    p_mana_bar = UiFactory.create_player_mana_bar(p)
+    p_stamina_bar = UiFactory.create_player_stamina_bar(p)
+    e_hp_bar = UiFactory.create_boss_hp_bar(e)
+    s1 = UiFactory.create_slot_1(font)
     s1.switch_item(hp_flask)
     s1.update_count()
-    s2 = Slot(80, GROUND + 20, font)
+    s2 = UiFactory.create_slot_2(font)
     s2.switch_item(mana_flask)
     s2.update_count()
 
