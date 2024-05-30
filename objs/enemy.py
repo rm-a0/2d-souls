@@ -1,30 +1,14 @@
 import pygame
 from constants import *
+from objs.entity import Entity
 
-class Enemy(pygame.sprite.Sprite):
-    def __init__(self, x, y):
-        super().__init__()
-        self.image = pygame.Surface((ENEMY_WIDTH, ENEMY_HEIGHT))
-        self.image.fill(RED)
-        self.rect = self.image.get_rect()
-        self.rect.topleft = (x, y)
-        # Physiscs 
-        self.vel_x = 0
-        self.vel_y = 0
-        # Enemy stats
-        self.max_hp = ENEMY_MAX_HP 
-        self.hp = ENEMY_MAX_HP
-        self.speed = ENEMY_SPEED
+class Enemy(Entity):
+    def __init__(self, x, y, width, height, color, hp, speed):
+        super().__init__(x, y, width, height, color, hp,speed)
         self.state = IDLE
         # Flags
         self.stop_duration = 0
         self.charge_duration = 0
-        # Items
-        self.equipped_weapon = None
-
-    # Passes weapon class reference
-    def equip_weapon(self, weapon):
-        self.equipped_weapon = weapon
 
     # Decreases hp by certain amount
     def take_damage(self, damage):

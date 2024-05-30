@@ -4,10 +4,13 @@ import sys
 import math
 
 from constants import *             # Constant variables
-from objs.player import Player      # Player class
-from objs.enemy import Enemy        # Enemy class
+
+from objs.player import Player      # Player child class
+from objs.enemy import Enemy        # Enemy child class
+
 from objs.consumable import Flask   # Flask class
 from objs.weapon import Weapon      # Weapon class
+
 from ui.bars import Bar             # Bar classes
 from ui.icons import Icon           # Icon class
 from ui.slots import Slot           # Slot class
@@ -73,7 +76,14 @@ def main():
 
     # Create objects
     p = Player(100, GROUND)
-    e = Enemy(SCREEN_WIDTH - 200, GROUND)
+    e = Enemy(SCREEN_WIDTH - 200,
+              GROUND,
+              ENEMY_WIDTH,
+              ENEMY_HEIGHT,
+              RED,
+              ENEMY_MAX_HP,
+              ENEMY_SPEED
+              )
     w1 = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
     w2 = Weapon(WEAPON_DAMAGE*2, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
     p.equip_weapon(w1)
