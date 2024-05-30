@@ -62,7 +62,9 @@ ENEMY_SPEED = int(1*(120/FPS))
 # States
 IDLE = 0
 CHASE = 1
-ATTACK = 2
+CHARGE = 2
+ATTACK = 3
+STUN = 4
 
 # WEAPON CONST
 # Geometry
