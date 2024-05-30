@@ -31,8 +31,8 @@ class Enemy(Entity):
             self.rect.x -= self.speed*50
             self.weapon.draw_weapon(self.rect.x - self.weapon.length, self.rect.y + PLAYER_HEIGHT/2)
         if self.weapon.is_intersecting(obj):
-            if obj.deflect_duration > 0:
-                if obj.deflect_duration >= PERFECT_CTR:
+            if obj.deflect > 0:
+                if obj.deflect >= PERFECT_CTR:
                     self.state = STUN
                     self.stun = 120
             else:

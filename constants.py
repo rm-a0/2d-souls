@@ -65,6 +65,8 @@ CHASE = 1
 CHARGE = 2
 ATTACK = 3
 STUN = 4
+DEFENSE = 5
+JUMP = 6
 
 # WEAPON CONST
 # Geometry
