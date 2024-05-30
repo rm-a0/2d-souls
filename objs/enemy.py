@@ -32,18 +32,17 @@ class Enemy(Entity):
     def attack(self, direction, obj):
         if direction == RIGHT:
             self.rect.x += self.speed*50
-            self.equipped_weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
+            self.weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
         else:
             self.rect.x -= self.speed*50
-            self.equipped_weapon.draw_weapon(self.rect.x - self.equipped_weapon.length, self.rect.y + PLAYER_HEIGHT/2)
-        if self.equipped_weapon.is_intersecting(obj):
+            self.weapon.draw_weapon(self.rect.x - self.weapon.length, self.rect.y + PLAYER_HEIGHT/2)
+        if self.weapon.is_intersecting(obj):
             if obj.deflect_duration > 0:
                 if obj.deflect_duration >= PERFECT_CTR:
                     self.state = STUN
                     self.stun = 120
             else:
-                damage = self.equipped_weapon.damage
-                obj.take_damage(damage)
+                self.weapon.deal_damage(obj)
                 self.state = IDLE
 
         else:

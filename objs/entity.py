@@ -16,8 +16,8 @@ class Entity(pygame.sprite.Sprite):
         self.hp = hp
         self.speed = speed
         # Items
-        self.equipped_weapon = None
+        self.weapon = None
 
     # Passes weapon reference
     def equip_weapon(self, weapon):
-        self.equipped_weapon = weapon
+        self.weapon = weapon

@@ -17,5 +17,16 @@ class Weapon(pygame.sprite.Sprite):
         self.rect.topleft = (x, y)
 
     # Checks if weapon is intersecting with and object
-    def is_intersecting(self, object):
-        return self.rect.colliderect(object.rect)
+    def is_intersecting(self, obj):
+        return self.rect.colliderect(obj.rect)
+
+    # Deals damage to an object
+    def deal_damage(self, obj):
+        if hasattr(obj, 'hp'):
+            obj.hp -= self.damage
+            if obj.hp <= 0:
+                obj.kill()
+
+    # Increase weapon damage by certain ammount
+    def increase_damage(self, amt):
+        self.damage += amt

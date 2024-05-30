@@ -81,12 +81,11 @@ class Player(Entity):
             self.stamina -= ATK_S_COST
             self.stop_duration = 9
             if self.facing == RIGHT:
-                self.equipped_weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
+                self.weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
             else:
-                self.equipped_weapon.draw_weapon(self.rect.x - self.equipped_weapon.length, self.rect.y + PLAYER_HEIGHT/2)
-            if self.equipped_weapon.is_intersecting(obj):
-                damage = self.equipped_weapon.damage
-                obj.take_damage(damage)
+                self.weapon.draw_weapon(self.rect.x - self.weapon.length, self.rect.y + PLAYER_HEIGHT/2)
+            if self.weapon.is_intersecting(obj):
+                self.weapon.deal_damage(obj)
 
     # Deflects enemy attack
     def counter(self):
