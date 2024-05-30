@@ -11,6 +11,7 @@ from objs.enemy import Enemy                # Enemy class
 from objs.consumable import Flask           # Flask class
 from objs.weapon import Weapon              # Weapon class
 
+from ui.ui_factory import UiFactory         # Ui factory class
 from ui.bars import Bar                     # Bar classes
 from ui.icons import Icon                   # Icon class
 from ui.slots import Slot                   # Slot class
@@ -77,12 +78,13 @@ def main():
     # Create objects
     p = ObjFactory.create_player()
     e = ObjFactory.create_enemy()
-    w1 = Weapon(WEAPON_DAMAGE, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
-    w2 = Weapon(WEAPON_DAMAGE*2, WEAPON_WEIGHT, WEAPON_LENGTH, WEAPON_WIDTH)
+    w1 = ObjFactory.create_weapon()
+    w2 = ObjFactory.create_weapon()
+
     p.equip_weapon(w1)
     e.equip_weapon(w2)
-    hp_flask = Flask('hp', 5, 100)
-    mana_flask = Flask('mana', 2, 40)
+    hp_flask = ObjFactory.create_hp_flask(5)
+    mana_flask = ObjFactory.create_mana_flask(2)
     # Icons
     ico = Icon(20, 20)
     # Bars

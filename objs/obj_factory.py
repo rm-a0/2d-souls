@@ -3,6 +3,8 @@ import pygame
 from constants import *
 from objs.player import Player
 from objs.enemy import Enemy
+from objs.weapon import Weapon
+from objs.consumable import Flask
 
 class ObjFactory:
     @staticmethod
@@ -31,5 +33,35 @@ class ObjFactory:
             ENEMY_MAX_HP,
             ENEMY_SPEED
         )
+
+    @staticmethod
+    def create_weapon():
+        return Weapon(
+            WEAPON_DAMAGE,
+            WEAPON_WEIGHT,
+            WEAPON_LENGTH,
+            WEAPON_WIDTH
+        )
+
+    @staticmethod
+    def create_mana_flask(count):
+        return Flask(
+            'mana',
+            count,
+            40
+        )
+
+    @staticmethod
+    def create_hp_flask(count):
+        return Flask(
+            'hp',
+            count,
+            100
+        )
+
+
+
+
+
 
 
