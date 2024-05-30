@@ -58,10 +58,3 @@ class ObjFactory:
             count,
             100
         )
-
-
-
-
-
-
-

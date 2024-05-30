@@ -64,9 +64,3 @@ class UiFactory:
             20,
             20
         )
-
-
-
-
-
-
