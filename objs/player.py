@@ -69,12 +69,6 @@ class Player(Entity):
         if self.stamina + amount <= PLAYER_MAX_STAMINA:
             self.stamina += amount
 
-    # Decreases hp by given amount
-    def take_damage(self, damage):
-        self.hp -= damage
-        if self.hp <= 0:
-            self.kill()
-
     # Deals damage to object that is intersecting with weapon
     def attack(self, obj):
         if self.stamina >= ATK_S_COST:

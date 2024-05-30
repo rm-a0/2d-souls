@@ -10,12 +10,6 @@ class Enemy(Entity):
         self.stun = 0
         self.charge = 0
 
-    # Decreases hp by certain amount
-    def take_damage(self, damage):
-        self.hp -= damage
-        if self.hp <= 0:
-            self.kill()
-
     # Resets velocity
     def idle(self):
         self.vel_x = 0
