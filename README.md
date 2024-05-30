@@ -25,8 +25,8 @@ Every element (hp bar, item slot, player, ...) has its own class with different 
 The `/ui` directory consists of classes used for creating and maintaining user interface. \
 - `/ui/bars.py` - bars tracking and displaying different stats
 - `/ui/icons.py` - icons displaying items or status effects
-- `/ui/slots.py` - slots displaying and tracking players equipped items
-The `/objs` directory consists of classes representing game objects. \
+- `/ui/slots.py` - slots displaying and tracking players equipped items \
+The `/objs` directory consists of classes representing game objects. 
 - `/objs/player.py` - object controlled by keyboard and mouse
 - `/objs/enemy.py` - bject controlled by FSM
 - `/objs/weapon.py` - object used for dealing damage
