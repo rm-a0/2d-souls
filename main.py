@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import pygame
 import sys
-import math
 
 from constants import *                     # Constant variables
+from utils.calc import *                    # Import utilities for calculating
+from settings import *                      # Import settings
 
 from objs.obj_factory import ObjFactory     # Object factory class
 from objs.player import Player              # Player class
@@ -15,53 +16,6 @@ from ui.ui_factory import UiFactory         # Ui factory class
 from ui.bars import Bar                     # Bar classes
 from ui.icons import Icon                   # Icon class
 from ui.slots import Slot                   # Slot class
-
-# Euclidean distance formula for 2d space
-def calc_dist(coord1, coord2):
-    x1, y1 = coord1
-    x2, y2 = coord2
-    return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-
-# Returns direction of 2objects
-def calc_dir(x1, x2):
-    if x1 > x2:
-        return RIGHT
-    else:
-        return LEFT
-
-# Hanlde keyboard input
-def handle_events(p, e, s1, s2, hp_flask, mana_flask):
-    for event in pygame.event.get():
-        # Quit 
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-        # Press controls
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LSHIFT:
-                p.dash()
-            elif event.key == pygame.K_e:
-                hp_flask.refill_stat(p)
-                s1.update_count()
-            elif event.key == pygame.K_q:
-                mana_flask.refill_stat(p)
-                s2.update_count()
-
-        # Mouse clicks
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
-                p.attack(e)
-            elif event.button == 3:
-                p.counter()
-
-    # Hold controls
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_d]:
-        p.move_right()
-    if keys[pygame.K_a]:
-        p.move_left()
-    if keys[pygame.K_SPACE]:
-        p.jump()
 
 # Main 
 def main():
@@ -105,7 +59,7 @@ def main():
     running = True 
     while running:
         # Handle keyboard input
-        handle_events(p, e, s1, s2, hp_flask, mana_flask)
+        handle_input(p, e, s1, s2)
 
         # Calculate distance
         dist = calc_dist(p.rect.center, e.rect.center)
