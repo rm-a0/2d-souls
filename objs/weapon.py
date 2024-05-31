@@ -1,5 +1,5 @@
 import pygame
-from constants import *
+from core.const import *
 
 class Weapon(pygame.sprite.Sprite):
     def __init__(self, damage, weight, length, width):

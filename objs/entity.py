@@ -1,5 +1,5 @@
 import pygame
-from constants import *
+from core.const import *
 
 class Entity(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, color, hp, speed):

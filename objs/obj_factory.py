@@ -1,6 +1,6 @@
 import pygame
 
-from constants import *
+from core.const import *
 from objs.player import Player
 from objs.enemy import Enemy
 from objs.weapon import Weapon

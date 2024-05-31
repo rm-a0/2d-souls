@@ -1,5 +1,5 @@
 import pygame
-from constants import *
+from core.const import *
 from objs.entity import Entity
 
 class Player(Entity):

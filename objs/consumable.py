@@ -1,5 +1,5 @@
 import pygame
-from constants import *
+from core.const import *
 
 class Flask(pygame.sprite.Sprite):
     def __init__(self, flask_type, count, refill_amount): 

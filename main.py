@@ -2,9 +2,10 @@
 import pygame
 import sys
 
-from constants import *                     # Constant variables
+from core.const import *                # Constant variables
+from core.settings import *                 # Settings
+
 from utils.calc import *                    # Import utilities for calculating
-from settings import *                      # Import settings
 
 from objs.obj_factory import ObjFactory     # Object factory class
 from objs.player import Player              # Player class

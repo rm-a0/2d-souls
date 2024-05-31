@@ -1,6 +1,7 @@
 import pygame
 
-from constants import *
+from core.const import *
+
 from ui.icons import Icon
 from ui.bars import Bar
 from ui.slots import Slot
