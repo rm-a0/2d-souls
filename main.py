@@ -18,6 +18,8 @@ from ui.bars import Bar                     # Bar classes
 from ui.icons import Icon                   # Icon class
 from ui.slots import Slot                   # Slot class
 
+from levels.level import Level               # Level class
+
 class Game:
     def __init__(self):
         pygame.init()
@@ -58,6 +60,9 @@ class Game:
 
     def init_boss_ui(self):
         self.boss_hp_bar = UiFactory.create_boss_hp_bar(self.boss)
+
+    def init_level(self, x, y):
+        self.level = Level(0, 0, "levels/data")
 
     def append_sprites(self):
         self.sprites = pygame.sprite.Group(self.player, self.boss, self.player.weapon, self.boss.weapon, self.ico, self.p_hp_bar, self.p_mana_bar, self.p_stamina_bar, self.boss_hp_bar, self.slot_1, self.slot_2)
