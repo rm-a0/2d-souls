@@ -1,5 +1,6 @@
 import pygame
-from core.const import *
+
+from core.constants import ICON_HEIGHT, ICON_WIDTH, GREY
 
 class Icon(pygame.sprite.Sprite):
     def __init__(self, x, y): 

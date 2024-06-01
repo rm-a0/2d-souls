@@ -1,10 +1,10 @@
 import pygame
 
-from core.const import *
-from objs.player import Player
-from objs.enemy import Enemy
-from objs.weapon import Weapon
-from objs.consumable import Flask
+from core.constants import *
+from objects.entities.player import Player
+from objects.entities.enemies.enemy import Enemy
+from objects.weapons.weapon import Weapon
+from objects.items.consumable import Flask
 
 class ObjFactory:
     @staticmethod

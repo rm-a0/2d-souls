@@ -1,10 +1,8 @@
-import pygame
+from core.constants import RED, BLUE, GREEN, SCREEN_HEIGHT, GROUND
 
-from core.const import *
-
-from ui.icons import Icon
-from ui.bars import Bar
-from ui.slots import Slot
+from ui.icon import Icon
+from ui.bar import Bar
+from ui.slot import Slot
 
 class UiFactory:
     @staticmethod

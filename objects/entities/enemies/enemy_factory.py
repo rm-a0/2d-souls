@@ -1,13 +1,13 @@
 import pygame
 
-from core.const import *
-from objs.enemy import Enemy
-from objs.weapon import Weapon
-from objs.obj_factory import ObjFactory
+from core.constants import ENEMY_WIDTH, ENEMY_HEIGHT, RED, ENEMY_MAX_HP, ENEMY_SPEED
+from objects.entities.enemies.enemy import Enemy
+from objects.weapons.weapon import Weapon
+from objects.obj_factory import ObjFactory
 
 class EnemyFactory:
     @staticmethod
-    def create_basic_enemy(x, y):
+    def create_default_enemy(x, y):
         enemy = Enemy(
             x,
             y,

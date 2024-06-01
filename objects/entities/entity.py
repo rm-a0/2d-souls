@@ -1,5 +1,6 @@
 import pygame
-from core.const import *
+
+from core.constants import ENEMY_WIDTH, ENEMY_HEIGHT
 
 class Entity(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, color, hp, speed):

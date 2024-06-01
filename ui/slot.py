@@ -1,7 +1,6 @@
 import pygame
-import sys
 
-from core.const import *
+from core.constants import SLOT_WIDTH, SLOT_HEIGHT, GREY, WHITE
 
 class Slot(pygame.sprite.Sprite):
     def __init__(self, x, y, font): 

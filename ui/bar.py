@@ -1,5 +1,6 @@
 import pygame
-from core.const import *
+
+from core.constants import BAR_HEIGHT
 
 class Bar(pygame.sprite.Sprite):
     def __init__(self, x, y, ammount, color):

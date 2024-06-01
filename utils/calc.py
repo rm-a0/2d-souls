@@ -1,6 +1,6 @@
 import math
 
-from core.const import *
+from core.constants import RIGHT, LEFT
 
 # Euclidean distance formula for 2d space
 def calc_dist(coord1, coord2):

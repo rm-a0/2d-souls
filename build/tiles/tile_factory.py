@@ -1,5 +1,5 @@
-from core.const import *
-from objs.tile import Tile
+from core.constants import *
+from build.tiles.tile import Tile
 
 class TileFactory:
     @staticmethod

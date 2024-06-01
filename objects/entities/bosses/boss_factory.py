@@ -1,11 +1,11 @@
 import pygame
 
-from core.const import *
-from objs.boss import Boss
+from core.constants import ENEMY_WIDTH, ENEMY_HEIGHT, RED, ENEMY_MAX_HP, ENEMY_SPEED
+from objects.bosses.boss import Boss
 
-class EnemyFactory:
+class BossFactory:
     @staticmethod
-    def create_boss(x, y):
+    def create_default_boss(x, y):
         return Boss(
             x,
             y,

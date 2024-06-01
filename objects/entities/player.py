@@ -1,6 +1,7 @@
 import pygame
-from core.const import *
-from objs.entity import Entity
+
+from core.constants import *
+from objects.entities.entity import Entity
 
 class Player(Entity):
     def __init__(self, x, y, width, height, color, hp, speed, mana, stamina, jspeed):

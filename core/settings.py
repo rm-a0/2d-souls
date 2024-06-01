@@ -1,10 +1,10 @@
 import pygame
 import sys
 
-from objs.player import Player              # Player class
-from objs.enemy import Enemy                # Enemy class
-from objs.consumable import Flask           # Flask class
-from objs.weapon import Weapon              # Weapon class
+from objects.entities.player import Player              # Player class
+from objects.entities.enemies.enemy import Enemy                # Enemy class
+from objects.items.consumable import Flask           # Flask class
+from objects.weapons.weapon import Weapon              # Weapon class
 
 # Hanlde keyboard input
 def handle_input(player, enemy, slot1, slot2):
@@ -39,5 +39,3 @@ def handle_input(player, enemy, slot1, slot2):
         player.move_left()
     if keys[pygame.K_SPACE]:
         player.jump()
-
-

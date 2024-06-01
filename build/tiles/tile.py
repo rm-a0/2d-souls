@@ -1,5 +1,4 @@
 import pygame
-from core.const import *
 
 class Tile(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, color):
