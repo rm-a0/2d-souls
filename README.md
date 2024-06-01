@@ -20,18 +20,33 @@ Upon executing the script, a window with a resolution of 1336x768 is created, fe
 - **Player (left object)**: Controlled via keyboard and mouse inputs.
 - **Enemy (right object)**: Driven by a simple AI using a finite state machine (FSM) with multiple conditions.
 
-## Game design
-Every element (hp bar, item slot, player, ...) has its own class with different methods. Classes were designed to be reuseable and readable at the same time. \
-The `/ui` directory consists of classes used for creating and maintaining user interface. 
-- `/ui/bars.py` - bars tracking and displaying different stats
-- `/ui/icons.py` - icons displaying items or status effects
-- `/ui/slots.py` - slots displaying and tracking players equipped items
-
-The `/objs` directory consists of classes representing game objects. 
-- `/objs/player.py` - object controlled by keyboard and mouse
-- `/objs/enemy.py` - object controlled by FSM
-- `/objs/weapon.py` - object used for dealing damage
-- `/objs/boss.py` - refined object controlled by FSM
+## Game design and structure
+### File Structure
+```
+├── main.py             - executable script             
+│
+├── build/              - components necessary for building parts of a game
+│   ├── level.py        - level class
+│   ├── levels/         - txt files with tilempas
+│   └── tiles/          - different types of tiles
+│
+├── core/               - core game components
+│   ├── constants.py    - constants
+│   ├── game.py         - main game module
+│   └── settings.py     - keyboard input and other settings
+│
+├── objects/            - in-game objects 
+│   ├── entities/       - in-game entities
+│   │   ├── entity.py   - superclass for all entities
+│   │   ├── player.py   - player class
+│   │   ├── bosses/     - different types of in-game bosses
+│   │   └── enemies/    - different types of in-game enemies
+│   ├── items/          - different types of in-game items
+│   └── weapons/        - different types of in-game weapons
+│
+├── ui/                 - user interface
+└── utils/              - basic utilities (for math)
+```
 
 Every complex object (enemy, boss, ...) is designed using simple FSM with hierarchical states (every state has substates and different conditional branches). 
 
