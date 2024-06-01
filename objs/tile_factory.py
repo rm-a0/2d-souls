@@ -5,9 +5,9 @@ class TileFactory:
     @staticmethod
     def create_tile(x, y):
         return Tile(
-            x*40,
-            y*40,
-            40,
-            40,
+            x*TILE_HEIGHT,
+            y*TILE_WIDTH,
+            TILE_WIDTH,
+            TILE_HEIGHT,
             WHITE
         )

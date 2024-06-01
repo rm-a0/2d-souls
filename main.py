@@ -34,7 +34,7 @@ class Game:
         self.init_player_ui()
         self.init_boss()
         self.init_boss_ui()
-        #self.init_level(0, 0)
+        self.init_level(0, 0)
         self.append_sprites()
 
     def init_player(self):
@@ -100,6 +100,7 @@ class Game:
                 break
             # Clear and draw new frame
             self.screen.fill(BLACK)
+            self.level.render(self.screen)
             self.sprites.draw(self.screen)
             pygame.display.flip()
             self.clock.tick(FPS)

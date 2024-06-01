@@ -1,4 +1,5 @@
 import os
+import pygame
 
 from core.const import *
 from objs.enemy_factory import EnemyFactory
@@ -10,9 +11,9 @@ class Level:
         self.x = x 
         self.y = y
         self.tilemap = []
-        self.tiles= []
-        self.enemies = []
-        self.bosses = []
+        self.tiles = pygame.sprite.Group()
+        self.enemies = pygame.sprite.Group()
+        self.bosses = pygame.sprite.Group()
         self.base_path = base_path
 
     def load_level(self):
@@ -34,8 +35,13 @@ class Level:
         for y, row in enumerate(self.tilemap):
             for x, tile in enumerate(row):
                 if tile == 1:
-                    self.tiles.append(TileFactory.create_tile(x, y))
+                    self.tiles.add(TileFactory.create_tile(x, y))
                 elif tile == 2:
-                    self.enemies.append(EnemyFactory.create_enemy(x*tile_width, y*tile_height))
+                    self.enemies.add(EnemyFactory.create_enemy(x*tile_width, y*tile_height))
                 elif tile == 3:
-                    self.bosses.append(EnemyFactory.create_enemy(x*tile_width, y*tile_height))
+                    self.bosses.add(EnemyFactory.create_enemy(x*tile_width, y*tile_height))
+
+    def render(self, screen):
+        self.tiles.draw(screen)
+        self.enemies.draw(screen)
+        self.bosses.draw(screen)
