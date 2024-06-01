@@ -50,11 +50,9 @@ Upon executing the script, a window with a resolution of 1336x768 is created, fe
 
 Every complex object (enemy, boss, ...) is designed using simple FSM with hierarchical states (every state has substates and different conditional branches). 
 
-### Enemies
-- **Simple Enemy** `/objs/enemy.py`:
+### Example
+- **Simple (default) Enemy** `/objects/entities/enemies/enemy.py`:
     ![enemy-fsm](https://northeurope1-mediap.svc.ms/transform/thumbnail?provider=spo&farmid=190566&inputFormat=jpg&cs=MDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDQ4MTcxMGE0fFNQTw&docid=https%3A%2F%2Fmy.microsoftpersonalcontent.com%2F_api%2Fv2.0%2Fdrives%2Fb!1B81ZReNdkaB3FfFGFCybX_88nOjrTdKtVprYFhHxTr53iKIDrU7Qa9ZgXIn2sxE%2Fitems%2F0156LPDBTP2HTOLUM46BDZGYQ4XOCUSTO4%3Ftempauth%3DeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBpZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC0wMDAwLTAwMDA0ODE3MTBhNCIsImF1ZCI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMC9teS5taWNyb3NvZnRwZXJzb25hbGNvbnRlbnQuY29tQDkxODgwNDBkLTZjNjctNGM1Yi1iMTEyLTM2YTMwNGI2NmRhZCIsImNhY2hla2V5IjoiMGguZnxtZW1iZXJzaGlwfDAwMDMwMDAwMGFlOWEyNjdAbGl2ZS5jb20iLCJlbmRwb2ludHVybCI6Im42YU9YdkNsMUp0bWk4azZnRDhIRzhnZDAycldzQVpaem56eGlBRGlveUE9IiwiZW5kcG9pbnR1cmxMZW5ndGgiOiIxNjQiLCJleHAiOiIxNzE3MTU2ODAwIiwiaXBhZGRyIjoiMTc4LjE0My40NC4yMzkiLCJpc2xvb3BiYWNrIjoiVHJ1ZSIsImlzcyI6IjAwMDAwMDAzLTAwMDAtMGZmMS1jZTAwLTAwMDAwMDAwMDAwMCIsIm5iZiI6IjE3MTcxMzUyMDAiLCJwdWlkIjoiMDAwMzAwMDAwQUU5QTI2NyIsInNjcCI6ImFsbHNpdGVzLmZ1bGxjb250cm9sIiwic2lkIjoiMzg3NDI3MjQxNjI4MzYxMzcyMCIsInNpdGVpZCI6Ik5qVXpOVEZtWkRRdE9HUXhOeTAwTmpjMkxUZ3haR010TlRkak5URTROVEJpTWpaayIsInRpZCI6IjkxODgwNDBkLTZjNjctNGM1Yi1iMTEyLTM2YTMwNGI2NmRhZCIsInR0IjoiMiIsInVwbiI6Im1pY2hhbHJlcGNpazlAZ21haWwuY29tIiwidmVyIjoiaGFzaGVkcHJvb2Z0b2tlbiJ9.DR60SOsT4hUMi6NSpIna5zrE4joXUrrUm_evp--3sUs%26version%3DPublished&cb=63852736446&encodeFailures=1&width=1920&height=876)
-- **Boss Enemy** `/objs/boss.py`:
-    ![boss-fsm](fsm/boss-fsm.jpg)
 
 # How to Install and Run
 Download or clone this repository
