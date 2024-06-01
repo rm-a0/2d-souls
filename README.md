@@ -86,10 +86,14 @@ Run using
 - [ ] Refactored, cleaned up and modularized code
 - [ ] Refined boss AI 
 - [ ] Dummy surface
-- [ ] Tilemap
+- [x] Tilemap
 
 # Bugs and Issues
 - [x] Jumping feels clunky and non responsive in some scenarios
 - [x] When enemy is defeated coordinates still exist and bar updating crashes
+- [ ] Enemy spawns relative to tile size (refine algorithm)
+- [ ] Redundant tile array in level object
+- [ ] UI upddating doesnt work
+- [ ] Enemy weapon isnt displayed
 - [ ] Code is ugly and messy
 - [ ] Enemy doesnt deal damage when player is inside him
