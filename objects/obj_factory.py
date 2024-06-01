@@ -35,15 +35,6 @@ class ObjFactory:
         )
 
     @staticmethod
-    def create_weapon():
-        return Weapon(
-            WEAPON_DAMAGE,
-            WEAPON_WEIGHT,
-            WEAPON_LENGTH,
-            WEAPON_WIDTH
-        )
-
-    @staticmethod
     def create_mana_flask(count):
         return Flask(
             'mana',

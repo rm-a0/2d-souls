@@ -7,6 +7,7 @@ from core.settings import *                 # Settings
 from utils.calc import *                    # Import utilities for calculating
 
 from objects.obj_factory import ObjFactory     # Object factory class
+from objects.weapons.weapon_factory import WeaponFactory
 from objects.entities.player import Player              # Player class
 from objects.entities.enemies.enemy import Enemy                # Enemy class
 from objects.items.consumable import Flask           # Flask class
@@ -38,7 +39,7 @@ class Game:
 
     def init_player(self):
         self.player = ObjFactory.create_player()
-        self.player.equip_weapon(ObjFactory.create_weapon())
+        self.player.equip_weapon(WeaponFactory.create_default_weapon())
         self.hp_flask = ObjFactory.create_hp_flask(5)
         self.mana_flask = ObjFactory.create_mana_flask(2)
 
