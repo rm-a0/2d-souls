@@ -34,6 +34,7 @@ class Game:
         self.init_player_ui()
         self.init_boss()
         self.init_boss_ui()
+        #self.init_level(0, 0)
         self.append_sprites()
 
     def init_player(self):
@@ -62,7 +63,8 @@ class Game:
         self.boss_hp_bar = UiFactory.create_boss_hp_bar(self.boss)
 
     def init_level(self, x, y):
-        self.level = Level(0, 0, "levels/data")
+        self.level = Level(x, y, "levels/data")
+        self.level.load_level()
 
     def append_sprites(self):
         self.sprites = pygame.sprite.Group(self.player, self.boss, self.player.weapon, self.boss.weapon, self.ico, self.p_hp_bar, self.p_mana_bar, self.p_stamina_bar, self.boss_hp_bar, self.slot_1, self.slot_2)

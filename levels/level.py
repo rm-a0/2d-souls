@@ -1,7 +1,8 @@
-import json
 import os
 
 from core.const import *
+from objs.enemy_factory import EnemyFactory
+from objs.tile_factory import TileFactory
 
 class Level:
     def __init__(self, x, y, base_path):
@@ -9,30 +10,32 @@ class Level:
         self.x = x 
         self.y = y
         self.tilemap = []
+        self.tiles= []
         self.enemies = []
         self.bosses = []
-        self.objects = []
         self.base_path = base_path
 
     def load_level(self):
-        filepath = os.path.join(self.base.path, self.level_name)
+        filepath = os.path.join(self.base_path, self.name)
         self.tilemap = self.load_tilemap(os.path.join(filepath, 'tilemap.txt'))
-        self.enemies = self.load_json(os.path.join(filepath, 'enemies.json'))
-        self.bosses = self.load_json(os.path.join(filepath, 'bosses.json'))
-        self.objects = self.load_json(os.path.join(filepath, 'objects.json'))
+        self.decode_tilemap()
 
     def load_tilemap(self, path):
         if os.path.exists(path):
             with open(path, 'r') as f:
-                return [list(line.strip()) for line in f]
+                tilemap = [line.strip().split(',') for line in f]
+
+                for row in tilemap:
+                    row[:] = [int(tile) for tile in row]
+                return tilemap
         return []
 
-    def load_json(self, path):
-        if not path or not os.path.exists(path):
-            return []
-        with open(path, 'r') as f:
-            data = json.load(f)
-        return self.decode_json(data)
-
-    def decode_json(self, data):
-        return
+    def decode_tilemap(self):
+        for y, row in enumerate(self.tilemap):
+            for x, tile in enumerate(row):
+                if tile == 1:
+                    self.tiles.append(TileFactory.create_tile(x, y))
+                elif tile == 2:
+                    self.enemies.append(EnemyFactory.create_enemy(x*tile_width, y*tile_height))
+                elif tile == 3:
+                    self.bosses.append(EnemyFactory.create_enemy(x*tile_width, y*tile_height))
