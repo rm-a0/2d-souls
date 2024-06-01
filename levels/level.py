@@ -37,6 +37,6 @@ class Level:
                 if tile == 1:
                     self.tiles.add(TileFactory.create_tile(x*TILE_WIDTH, y*TILE_HEIGHT))
                 elif tile == 2:
-                    self.enemies.append(EnemyFactory.create_enemy(x*TILE_WIDTH, y*TILE_HEIGHT))
+                    self.enemies.append(EnemyFactory.create_basic_enemy(x*TILE_WIDTH, y*TILE_HEIGHT))
                 elif tile == 3:
-                    self.bosses.append(EnemyFactory.create_enemy(x*TILE_WIDTH, y*TILE_HEIGHT))
+                    self.bosses.append(EnemyFactory.create_basic_enemy(x*TILE_WIDTH, y*TILE_HEIGHT))
