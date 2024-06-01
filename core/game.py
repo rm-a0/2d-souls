@@ -6,7 +6,7 @@ from core.settings import *                 # Settings
 
 from utils.calc import *                    # Import utilities for calculating
 
-from objects.obj_factory import ObjFactory     # Object factory class
+from objects.items.item_factory import ItemFactory
 from objects.weapons.weapon_factory import WeaponFactory
 from objects.entities.player import Player              # Player class
 from objects.entities.enemies.enemy import Enemy                # Enemy class
@@ -38,10 +38,10 @@ class Game:
         self.append_sprites()
 
     def init_player(self):
-        self.player = ObjFactory.create_player()
+        self.player = Player(100, GROUND, PLAYER_WIDTH, PLAYER_HEIGHT, GREEN, PLAYER_MAX_HP, PLAYER_SPEED, PLAYER_MAX_MANA, PLAYER_MAX_STAMINA, JUMP_SPEED)
         self.player.equip_weapon(WeaponFactory.create_default_weapon())
-        self.hp_flask = ObjFactory.create_hp_flask(5)
-        self.mana_flask = ObjFactory.create_mana_flask(2)
+        self.hp_flask = ItemFactory.create_hp_flask(5)
+        self.mana_flask = ItemFactory.create_mana_flask(2)
 
     def init_player_ui(self):
         self.ico = UiFactory.create_main_icon() 

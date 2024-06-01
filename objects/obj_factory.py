@@ -21,31 +21,3 @@ class ObjFactory:
             PLAYER_MAX_STAMINA,
             JUMP_SPEED
         )
-
-    @staticmethod
-    def create_enemy():
-        return Enemy(
-            SCREEN_WIDTH - 200,
-            GROUND,
-            ENEMY_WIDTH,
-            ENEMY_HEIGHT,
-            RED,
-            ENEMY_MAX_HP,
-            ENEMY_SPEED
-        )
-
-    @staticmethod
-    def create_mana_flask(count):
-        return Flask(
-            'mana',
-            count,
-            40
-        )
-
-    @staticmethod
-    def create_hp_flask(count):
-        return Flask(
-            'hp',
-            count,
-            100
-        )
