@@ -29,12 +29,12 @@ class Game:
         pygame.display.set_caption('dev/2d-souls')
         self.clock = pygame.time.Clock()
         self.font = pygame.font.Font(None, 26)
+        self.sprites = pygame.sprite.Group
 
         self.init_player()
         self.init_player_ui()
-        self.init_boss()
-        self.init_boss_ui()
         self.init_level(0, 0)
+        self.init_sprites()
         self.append_sprites()
 
     def init_player(self):
@@ -55,59 +55,54 @@ class Game:
         self.slot_2.switch_item(self.mana_flask)
         self.slot_2.update_count()
 
-    def init_boss(self):
-        self.boss = ObjFactory.create_enemy()
-        self.boss.equip_weapon(ObjFactory.create_weapon())
-
-    def init_boss_ui(self):
-        self.boss_hp_bar = UiFactory.create_boss_hp_bar(self.boss)
-
     def init_level(self, x, y):
         self.level = Level(x, y, "levels/data")
         self.level.load_level()
 
+    def init_sprites(self):
+        self.sprites = pygame.sprite.Group(self.player, self.player.weapon, self.ico, self.p_hp_bar, self.p_mana_bar, self.p_stamina_bar, self.slot_1, self.slot_2)
+
     def append_sprites(self):
-        self.sprites = pygame.sprite.Group(self.player, self.boss, self.player.weapon, self.boss.weapon, self.ico, self.p_hp_bar, self.p_mana_bar, self.p_stamina_bar, self.boss_hp_bar, self.slot_1, self.slot_2)
+        for enemy in self.level.enemies:
+            self.sprites.add(enemy)
+        for boss in self.level.bosses:
+            self.sprites.add(boss)
 
+    def render_frame(self):
+        self.screen.fill(BLACK)
+        self.level.tiles.draw(self.screen)
+        self.sprites.draw(self.screen)
+        pygame.display.flip()
 
+    def handle_player(self):
+        self.player.apply_gravity()
+        self.player.refill_stamina(1)
+        self.player.update()
+
+    def handle_enemies(self):
+        for enemy in self.level.enemies:
+            enemy.update(calc_dist(self.player.rect.center, enemy.rect.center))
+            enemy.perform_action(calc_dir(self.player.rect.x, enemy.rect.x), self.player)
+        for boss in self.level.bosses:
+            boss.update(calc_dist(self.player.rect.center, boss.rect.center))
+            boss.perform_action(calc_dir(self.player.rect.x, boss.rect.x), self.player)
+
+    # Main game loop
     def game_loop(self):
         running = True 
         while running:
-            # Handle keyboard input
-            handle_input(self.player, self.boss, self.slot_1, self.slot_2)
-            # Calculate distance
-            dist = calc_dist(self.player.rect.center, self.boss.rect.center)
-            direction = calc_dir(self.player.rect.x, self.boss.rect.x)
-            # Handle player
-            self.player.apply_gravity()
-            self.player.refill_stamina(1)
-            self.player.update()
-            # Handle enemy
-            self.boss.update(dist)
-            self.boss.perform_action(direction, self.player)
-            # Update ui
-            if self.player.hp > 0:
-                self.p_hp_bar.update(self.player.hp)
-                self.p_mana_bar.update(self.player.mana)
-                self.p_stamina_bar.update(self.player.stamina)
-            else:
-                print("You lost")
-                break
-            if self.boss.hp > 0: 
-                self.boss_hp_bar.update(self.boss.hp)
-            else:
-                print("You won")
-                break
-            # Clear and draw new frame
-            self.screen.fill(BLACK)
-            self.level.render(self.screen)
-            self.sprites.draw(self.screen)
-            pygame.display.flip()
+            # Process keyboard input
+            handle_input(self.player, self.level.enemies[0], self.slot_1, self.slot_2)
+
+            self.handle_player()
+            self.handle_enemies()
+
+            # Update frame
+            self.render_frame()
             self.clock.tick(FPS)
 
         pygame.quit()
         sys.exit()
-
 
 # Main 
 def main():
