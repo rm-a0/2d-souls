@@ -98,7 +98,8 @@ Run using
 - [x] Added enemy AI prototype
 - [x] Added simple AI for enemies
 - [x] Windup for enemy attack
-- [ ] Refactored, cleaned up and modularized code
+- [x] Refactored, cleaned up and modularized code
+- [x] Finished file organization and structure
 - [ ] Refined boss AI 
 - [ ] Dummy surface
 - [x] Tilemap
@@ -110,5 +111,4 @@ Run using
 - [ ] Redundant tile array in level object
 - [ ] UI upddating doesnt work
 - [ ] Enemy weapon isnt displayed
-- [ ] Code is ugly and messy
 - [ ] Enemy doesnt deal damage when player is inside him
