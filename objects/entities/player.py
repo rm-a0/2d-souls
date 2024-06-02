@@ -12,58 +12,35 @@ class Player(Entity):
         self.max_mana = mana 
         self.mana = mana 
         self.jump_speed = jspeed
-        # States
-        self.state = IDLE
-        self.facing = RIGHT
-        self.deflect = 0 
-        self.stun = 0
-
-    # Updates x and y position based on velocity
-    # Decrements stop duration every game cycle
-    def update(self):
-        if self.stun > 0:
-            self.stun -= 1
-        if self.deflect > 0:
-            self.deflect -= 1
-        self.rect.y += self.vel_y
-        self.rect.x += self.vel_x
-
-    # Gravity implemented with ground as base 
-    def apply_gravity(self):
-        self.vel_y += GRAVITY
-        # Reset jump state
-        if self.rect.y > GROUND:
-            self.vel_y = 0
-            self.rect.y = GROUND
-            self.state = IDLE
 
     # Increases x coordinate
     def move_right(self):
         if self.stun <= 0:
-            self.rect.x += self.speed
+            self.velocity.x += self.speed
             self.facing = RIGHT
 
     # Decreases x coordinate
     def move_left(self):
         if self.stun <= 0:
-            self.rect.x -= self.speed
+            self.velocity.x -= self.speed
             self.facing = LEFT
 
     # Sets flag and decreases y velocity
     def jump(self):
         if self.stamina > JMP_S_COST and self.state != JUMP:
             self.stamina -= JMP_S_COST 
-            self.vel_y = -self.jump_speed
+            self.velocity.y = -self.jump_speed
             self.state = JUMP
 
-    # Increases x or y coordinate 
+    # Dash in the direction player is facing 
     def dash(self):
         if self.stamina > DASH_S_COST:
+            self.dash_duration = 120
             self.stamina -= DASH_S_COST
             if self.facing == RIGHT:
-                self.rect.x += DASH_DIST 
+                self.velocity.x = self.speed*4 
             if self.facing == LEFT:
-                self.rect.x -= DASH_DIST 
+                self.velocity.x = -self.speed*4
 
     # Refills stamina by given amount
     def refill_stamina(self, amount):

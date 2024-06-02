@@ -10,18 +10,16 @@ class Level:
         self.name = f"lvl_{x}_{y}"
         self.x = x 
         self.y = y
-        self.tilemap = []
         self.tiles = pygame.sprite.Group()
         self.enemies = []
         self.bosses = []
 
     def load_level(self):
         filepath = os.path.join('build/levels', self.name)
-        self.tilemap = self.load_tilemap(os.path.join(filepath, 'tilemap.txt'))
-        self.decode_tilemap()
+        fullpath = os.path.join(filepath, 'tilemap.txt')
+        self.decode_tilemap(self.load_tilemap(fullpath))
 
     def load_tilemap(self, path):
-        print(path)
         if os.path.exists(path):
             with open(path, 'r') as f:
                 tilemap = [line.strip().split(',') for line in f]
@@ -29,11 +27,10 @@ class Level:
                 for row in tilemap:
                     row[:] = [int(tile) for tile in row]
                 return tilemap
-        print("path doesnt exist")
         return []
 
-    def decode_tilemap(self):
-        for y, row in enumerate(self.tilemap):
+    def decode_tilemap(self, tilemap):
+        for y, row in enumerate(tilemap):
             for x, tile in enumerate(row):
                 if tile == 1:
                     self.tiles.add(TileFactory.create_tile(x*TILE_WIDTH, y*TILE_HEIGHT))

@@ -38,7 +38,7 @@ class Game:
         self.append_sprites()
 
     def init_player(self):
-        self.player = Player(100, GROUND, PLAYER_WIDTH, PLAYER_HEIGHT, GREEN, PLAYER_MAX_HP, PLAYER_SPEED, PLAYER_MAX_MANA, PLAYER_MAX_STAMINA, JUMP_SPEED)
+        self.player = Player(100, GROUND-200, PLAYER_WIDTH, PLAYER_HEIGHT, GREEN, PLAYER_MAX_HP, PLAYER_SPEED, PLAYER_MAX_MANA, PLAYER_MAX_STAMINA, JUMP_SPEED)
         self.player.equip_weapon(WeaponFactory.create_default_weapon())
         self.hp_flask = ItemFactory.create_hp_flask(5)
         self.mana_flask = ItemFactory.create_mana_flask(2)
@@ -80,16 +80,15 @@ class Game:
         self.p_stamina_bar.update(self.player.stamina)
 
     def handle_player(self):
-        self.player.apply_gravity()
         self.player.refill_stamina(1)
-        self.player.update()
+        self.player.update(self.level.tiles)
 
     def handle_enemies(self):
         for enemy in self.level.enemies:
-            enemy.update(calc_dist(self.player.rect.center, enemy.rect.center))
+            enemy.change_state(calc_dist(self.player.rect.center, enemy.rect.center))
             enemy.perform_action(calc_dir(self.player.rect.x, enemy.rect.x), self.player)
         for boss in self.level.bosses:
-            boss.update(calc_dist(self.player.rect.center, boss.rect.center))
+            boss.change_state(calc_dist(self.player.rect.center, boss.rect.center))
             boss.perform_action(calc_dir(self.player.rect.x, boss.rect.x), self.player)
 
     # Main game loop

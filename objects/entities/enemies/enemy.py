@@ -6,22 +6,22 @@ from objects.entities.entity import Entity
 class Enemy(Entity):
     def __init__(self, x, y, width, height, color, hp, speed):
         super().__init__(x, y, width, height, color, hp,speed)
-        self.state = IDLE
         # Flags
-        self.stun = 0
         self.charge = 0
 
     # Resets velocity
     def idle(self):
-        self.vel_x = 0
-        self.vel_y = 0
+        self.velocity.x = 0
+        self.velocity.y = 0
 
     # Moves into given direction
     def chase(self, direction):
         if direction == LEFT:
             self.rect.x -= self.speed
+            self.facing = LEFT
         else:
             self.rect.x += self.speed
+            self.facing = RIGHT
 
     # Deals damage to object that is intersecting with weapon
     def attack(self, direction, obj):
@@ -44,7 +44,7 @@ class Enemy(Entity):
             self.state = IDLE
 
     # FSM for changing changing states
-    def update(self, dist):
+    def change_state(self, dist):
         if self.state == IDLE:
             if dist < 1000:
                 self.state = CHASE
@@ -74,5 +74,3 @@ class Enemy(Entity):
             self.charge -= 1
         elif self.state == ATTACK:
             self.attack(direction, obj)
-        elif self.state == STUN:
-            self.stun -= 1

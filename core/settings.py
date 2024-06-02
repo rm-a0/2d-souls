@@ -8,6 +8,15 @@ from objects.weapons.weapon import Weapon              # Weapon class
 
 # Hanlde keyboard input
 def handle_input(player, enemy, slot1, slot2):
+    # Hold controls
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_d]:
+        player.move_right()
+    if keys[pygame.K_a]:
+        player.move_left()  
+    if keys[pygame.K_SPACE]:
+        player.jump()
+
     for event in pygame.event.get():
         # Quit 
         if event.type == pygame.QUIT:
@@ -30,12 +39,3 @@ def handle_input(player, enemy, slot1, slot2):
                 player.attack(enemy)
             elif event.button == 3:
                 player.counter()
-
-    # Hold controls
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_d]:
-        player.move_right()
-    if keys[pygame.K_a]:
-        player.move_left()
-    if keys[pygame.K_SPACE]:
-        player.jump()
