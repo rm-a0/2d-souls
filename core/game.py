@@ -87,9 +87,11 @@ class Game:
         for enemy in self.level.enemies:
             enemy.change_state(calc_dist(self.player.rect.center, enemy.rect.center))
             enemy.perform_action(calc_dir(self.player.rect.x, enemy.rect.x), self.player)
+            enemy.update(self.level.tiles)
         for boss in self.level.bosses:
             boss.change_state(calc_dist(self.player.rect.center, boss.rect.center))
             boss.perform_action(calc_dir(self.player.rect.x, boss.rect.x), self.player)
+            boss.update(self.level.tiles)
 
     # Main game loop
     def game_loop(self):
