@@ -7,12 +7,12 @@ class Enemy(Entity):
     def __init__(self, x, y, width, height, color, hp, speed):
         super().__init__(x, y, width, height, color, hp,speed)
         # Flags
+        self.state = IDLE
         self.charge = 0
 
     # Resets velocity
     def idle(self):
         self.velocity.x = 0
-        self.velocity.y = 0
 
     # Moves into given direction
     def chase(self, direction):

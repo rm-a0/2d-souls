@@ -17,7 +17,7 @@ class Entity(pygame.sprite.Sprite):
         self.speed = speed
         # Flags
         self.facing = RIGHT
-        self.state = IDLE
+        self.jumping = False
         self.deflect = 0
         self.stun = 0
         self.dash_duration = 0
@@ -55,6 +55,7 @@ class Entity(pygame.sprite.Sprite):
                     if self.velocity.y > 0:
                         self.velocity.y = 0
                         self.rect.bottom = tile.rect.top
+                        self.jumping = False
                     elif self.velocity < 0:
                         self.rect.top = tile.rect.bottom
                         self.velocity.y = 0

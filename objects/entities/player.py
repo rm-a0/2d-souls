@@ -27,10 +27,10 @@ class Player(Entity):
 
     # Sets flag and decreases y velocity
     def jump(self):
-        if self.stamina > JMP_S_COST and self.state != JUMP:
+        if self.stamina > JMP_S_COST and self.jumping == False:
             self.stamina -= JMP_S_COST 
             self.velocity.y = -self.jump_speed
-            self.state = JUMP
+            self.jumping = True 
 
     # Dash in the direction player is facing 
     def dash(self):
