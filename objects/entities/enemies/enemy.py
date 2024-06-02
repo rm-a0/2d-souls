@@ -17,19 +17,17 @@ class Enemy(Entity):
     # Moves into given direction
     def chase(self, direction):
         if direction == LEFT:
-            self.rect.x -= self.speed
+            self.velocity.x -= self.speed
             self.facing = LEFT
         else:
-            self.rect.x += self.speed
+            self.velocity.x += self.speed
             self.facing = RIGHT
 
     # Deals damage to object that is intersecting with weapon
     def attack(self, direction, obj):
         if direction == RIGHT:
-            self.rect.x += self.speed*50
             self.weapon.draw_weapon(self.rect.x + PLAYER_WIDTH, self.rect.y + PLAYER_HEIGHT/2)
         else:
-            self.rect.x -= self.speed*50
             self.weapon.draw_weapon(self.rect.x - self.weapon.length, self.rect.y + PLAYER_HEIGHT/2)
         if self.weapon.is_intersecting(obj):
             if obj.deflect > 0:

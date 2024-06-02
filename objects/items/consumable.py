@@ -12,8 +12,7 @@ class Flask(pygame.sprite.Sprite):
 
     # Refills player stat by certain amount and decrements quantity 
     def refill_stat(self, player):
-        state = getattr(player, "state")
-        if self.count > 0 and state != JUMP:
+        if self.count > 0 and player.jumping == False:
             self.count -= 1
             stat = getattr(player, self.flask_type)
             max_stat = getattr(player, f'max_{self.flask_type}', stat)

@@ -85,8 +85,9 @@ Run using
 # Bugs and Issues
 - [x] Jumping feels clunky and non responsive in some scenarios
 - [x] When enemy is defeated coordinates still exist and bar updating crashes
-- [ ] Enemy spawns relative to tile size (refine algorithm)
-- [ ] Redundant tile array in level object
+- [x] Enemy spawns relative to tile size (refine algorithm)
+- [x] Redundant tile array in level object
 - [x] UI upddating doesnt work
+- [ ] Enemy can bug out and spawn on top of wall when dashing
 - [ ] Enemy weapon isnt displayed
 - [ ] Enemy doesnt deal damage when player is inside him
