@@ -74,6 +74,11 @@ class Game:
         self.sprites.draw(self.screen)
         pygame.display.flip()
 
+    def update_ui(self):
+        self.p_hp_bar.update(self.player.hp)
+        self.p_mana_bar.update(self.player.mana)
+        self.p_stamina_bar.update(self.player.stamina)
+
     def handle_player(self):
         self.player.apply_gravity()
         self.player.refill_stamina(1)
@@ -98,6 +103,7 @@ class Game:
             self.handle_enemies()
 
             # Update frame
+            self.update_ui()
             self.render_frame()
             self.clock.tick(FPS)
 
