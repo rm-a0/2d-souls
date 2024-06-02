@@ -15,13 +15,13 @@ class Player(Entity):
 
     # Increases x coordinate
     def move_right(self):
-        if self.stun <= 0:
+        if self.stun <= 0 and self.dash_duration <= 0:
             self.velocity.x += self.speed
             self.facing = RIGHT
 
     # Decreases x coordinate
     def move_left(self):
-        if self.stun <= 0:
+        if self.stun <= 0 and self.dash_duration <= 0:
             self.velocity.x -= self.speed
             self.facing = LEFT
 
@@ -35,12 +35,12 @@ class Player(Entity):
     # Dash in the direction player is facing 
     def dash(self):
         if self.stamina > DASH_S_COST:
-            self.dash_duration = 120
+            self.dash_duration = 20
             self.stamina -= DASH_S_COST
             if self.facing == RIGHT:
-                self.velocity.x = self.speed*4 
+                self.velocity.x = self.speed*2 
             if self.facing == LEFT:
-                self.velocity.x = -self.speed*4
+                self.velocity.x = -self.speed*2
 
     # Refills stamina by given amount
     def refill_stamina(self, amount):
