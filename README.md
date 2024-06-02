@@ -9,19 +9,7 @@
 - [Bugs](#bugs-and-issues)
 
 # Description
-Upon executing the script, a window with a resolution of 1336x768 is created, featuring a simple user interface and two game objects.
-
-### User Interface
-- **Player Stats**: Three bars tracking the players hp, mana, and stamina.
-- **Equipment Slots**: Two slots displaying players equipped items.
-- **Enemy Health**: A health bar at the bottom showing the enemy's hp.
-
-### Controls
-- **Player (left object)**: Controlled via keyboard and mouse inputs.
-- **Enemy (right object)**: Driven by a simple AI using a finite state machine (FSM) with multiple conditions.
-
-## Game design and structure
-### File Structure
+## File Structure
 ```
 ├── main.py             - executable script             
 │
