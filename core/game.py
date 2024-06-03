@@ -65,8 +65,10 @@ class Game:
     def append_sprites(self):
         for enemy in self.level.enemies:
             self.sprites.add(enemy)
+            self.sprites.add(enemy.weapon)
         for boss in self.level.bosses:
             self.sprites.add(boss)
+            self.sprites.add(boss.weapon)
 
     def render_frame(self):
         self.screen.fill(BLACK)
