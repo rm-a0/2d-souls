@@ -3,6 +3,7 @@ import pygame
 
 from core.constants import *
 from objects.entities.enemies.enemy_factory import EnemyFactory
+from objects.entities.bosses.boss_factory import BossFactory
 from build.tiles.tile_factory import TileFactory
 
 class Level:
@@ -37,4 +38,4 @@ class Level:
                 elif tile == 2:
                     self.enemies.append(EnemyFactory.create_default_enemy(x*TILE_WIDTH, y*TILE_HEIGHT-30))
                 elif tile == 3:
-                    self.bosses.append(EnemyFactory.create_default_enemy(x*TILE_WIDTH, y*TILE_HEIGHT))
+                    self.bosses.append(BossFactory.create_default_boss(x*TILE_WIDTH, y*TILE_HEIGHT))

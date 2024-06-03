@@ -38,6 +38,7 @@ class Boss(Entity):
                 self.weapon.deal_damage(obj)
                 self.state = IDLE
         else:
+            self.state = IDLE
  
     # FSM for changing changing states
     def change_state(self, dist):
