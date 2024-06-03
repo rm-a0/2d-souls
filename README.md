@@ -80,7 +80,7 @@ Run using
 - [x] Refactored, cleaned up and modularized code
 - [x] Finished file organization and structure
 - [x] Tilemap
-- [ ] Updated physics
+- [x] Updated physics
 
 # Bugs and Issues
 - [x] Jumping feels clunky and non responsive in some scenarios
@@ -88,6 +88,5 @@ Run using
 - [x] Enemy spawns relative to tile size (refine algorithm)
 - [x] Redundant tile array in level object
 - [x] UI upddating doesnt work
-- [ ] Enemy can bug out and spawn on top of wall when dashing
+- [x] Enemy can bug out and spawn on top of wall when dashing
 - [ ] Enemy weapon isnt displayed
-- [ ] Enemy doesnt deal damage when player is inside him
