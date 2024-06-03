@@ -95,3 +95,4 @@ Run using
 - [x] Enemy weapon isnt displayed
 - [ ] Weapon stays displayed after its used
 - [ ] Remove enemies from previous level
+- [ ] Adjust key handling for more than one entity

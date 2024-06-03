@@ -29,7 +29,8 @@ class Game:
         pygame.display.set_caption('dev/2d-souls')
         self.clock = pygame.time.Clock()
         self.font = pygame.font.Font(None, 26)
-        self.sprites = pygame.sprite.Group
+        self.main_sprites = pygame.sprite.Group()
+        self.level_sprites = pygame.sprite.Group()
         # Map and levels
         self.row = 0
         self.col = 0
@@ -38,10 +39,10 @@ class Game:
 
         self.init_player()
         self.init_player_ui()
-        self.init_sprites()
+        self.init_main_sprites()
         # Create and load starting level
         self.switch_level()
-        self.append_sprites()
+        self.init_level_sprites()
  
     def init_player(self):
         self.player = Player(100, GROUND-200, PLAYER_WIDTH, PLAYER_HEIGHT, GREEN, PLAYER_MAX_HP, PLAYER_SPEED, PLAYER_MAX_MANA, PLAYER_MAX_STAMINA, JUMP_SPEED)
@@ -70,21 +71,23 @@ class Game:
         self.map[row][col] = Level(row, col)
         self.map[row][col].load_level()
 
-    def init_sprites(self):
-        self.sprites = pygame.sprite.Group(self.player, self.player.weapon, self.ico, self.p_hp_bar, self.p_mana_bar, self.p_stamina_bar, self.slot_1, self.slot_2)
+    def init_main_sprites(self):
+        self.main_sprites = pygame.sprite.Group(self.player, self.player.weapon, self.ico, self.p_hp_bar, self.p_mana_bar, self.p_stamina_bar, self.slot_1, self.slot_2)
 
-    def append_sprites(self):
+    def init_level_sprites(self):
+        self.level_sprites.empty()
         for enemy in self.level.enemies:
-            self.sprites.add(enemy)
-            self.sprites.add(enemy.weapon)
+            self.level_sprites.add(enemy)
+            self.level_sprites.add(enemy.weapon)
         for boss in self.level.bosses:
-            self.sprites.add(boss)
-            self.sprites.add(boss.weapon)
+            self.level_sprites.add(boss)
+            self.level_sprites.add(boss.weapon)
 
     def render_frame(self):
         self.screen.fill(BLACK)
         self.level.tiles.draw(self.screen)
-        self.sprites.draw(self.screen)
+        self.main_sprites.draw(self.screen)
+        self.level_sprites.draw(self.screen)
         pygame.display.flip()
 
     def update_ui(self):
@@ -111,22 +114,22 @@ class Game:
             self.col += 1
             self.player.rect.x = 0
             self.switch_level()
-            self.append_sprites()
+            self.init_level_sprites()
         elif self.player.rect.x < 0:
             self.col -= 1
             self.player.rect.x = SCREEN_WIDTH
             self.switch_level()
-            self.append_sprites()
+            self.init_level_sprites()
         elif self.player.rect.y > SCREEN_HEIGHT:
             self.row += 1
             self.player.rect.y = 0
             self.switch_level()
-            self.append_sprites()
+            self.init_level_sprites()
         elif self.player.rect.y < 0:
             self.row -= 1
             self.player.rect.y = SCREEN_HEIGHT
             self.switch_level()
-            self.append_sprites()
+            self.init_level_sprites()
 
     # Main game loop
     def game_loop(self):
