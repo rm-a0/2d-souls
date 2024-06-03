@@ -89,4 +89,5 @@ Run using
 - [x] Redundant tile array in level object
 - [x] UI upddating doesnt work
 - [x] Enemy can bug out and spawn on top of wall when dashing
-- [ ] Enemy weapon isnt displayed
+- [x] Enemy weapon isnt displayed
+- [ ] Weapon stays displayed after its used
