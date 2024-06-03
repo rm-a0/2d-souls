@@ -81,6 +81,7 @@ Run using
 - [x] Finished file organization and structure
 - [x] Tilemap
 - [x] Updated physics
+- [ ] Added dynamic map loading
 - [ ] Added inventory
 - [ ] Added chests
 
@@ -93,3 +94,4 @@ Run using
 - [x] Enemy can bug out and spawn on top of wall when dashing
 - [x] Enemy weapon isnt displayed
 - [ ] Weapon stays displayed after its used
+- [ ] Remove enemies from previous level
