@@ -138,7 +138,7 @@ class Game:
             # Handle level switching
             self.handle_level()
             # Process keyboard input
-            handle_input(self.player, self.level.bosses[0], self.slot_1, self.slot_2)
+            handle_input(self.player, self.level, self.slot_1, self.slot_2)
 
             self.handle_player()
             self.handle_enemies()

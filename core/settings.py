@@ -7,7 +7,7 @@ from objects.items.consumable import Flask           # Flask class
 from objects.weapons.weapon import Weapon              # Weapon class
 
 # Hanlde keyboard input
-def handle_input(player, enemy, slot1, slot2):
+def handle_input(player, level, slot1, slot2):
     # Hold controls
     keys = pygame.key.get_pressed()
     if keys[pygame.K_d]:
@@ -36,6 +36,9 @@ def handle_input(player, enemy, slot1, slot2):
         # Mouse clicks
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                player.attack(enemy)
+                for enemy in level.enemies:
+                    player.attack(enemy)
+                for boss in level.bosses:
+                    player.attack(boss)
             elif event.button == 3:
                 player.counter()
