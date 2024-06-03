@@ -100,7 +100,7 @@ class Game:
         running = True 
         while running:
             # Process keyboard input
-            handle_input(self.player, self.level.enemies[0], self.slot_1, self.slot_2)
+            handle_input(self.player, self.level.bosses[0], self.slot_1, self.slot_2)
 
             self.handle_player()
             self.handle_enemies()
