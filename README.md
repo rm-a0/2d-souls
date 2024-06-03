@@ -81,6 +81,8 @@ Run using
 - [x] Finished file organization and structure
 - [x] Tilemap
 - [x] Updated physics
+- [ ] Added inventory
+- [ ] Added chests
 
 # Bugs and Issues
 - [x] Jumping feels clunky and non responsive in some scenarios
