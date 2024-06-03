@@ -30,13 +30,19 @@ class Game:
         self.clock = pygame.time.Clock()
         self.font = pygame.font.Font(None, 26)
         self.sprites = pygame.sprite.Group
+        # Map and levels
+        self.row = 0
+        self.col = 0
+        self.map = [[None for _ in range(5)] for _ in range(5)]
+        self.level = None
 
         self.init_player()
         self.init_player_ui()
-        self.init_level(0, 0)
         self.init_sprites()
+        # Create and load starting level
+        self.switch_level()
         self.append_sprites()
-
+ 
     def init_player(self):
         self.player = Player(100, GROUND-200, PLAYER_WIDTH, PLAYER_HEIGHT, GREEN, PLAYER_MAX_HP, PLAYER_SPEED, PLAYER_MAX_MANA, PLAYER_MAX_STAMINA, JUMP_SPEED)
         self.player.equip_weapon(WeaponFactory.create_default_weapon())
@@ -55,9 +61,14 @@ class Game:
         self.slot_2.switch_item(self.mana_flask)
         self.slot_2.update_count()
 
-    def init_level(self, x, y):
-        self.level = Level(x, y)
-        self.level.load_level()
+    def switch_level(self):
+        if self.map[self.row][self.col] == None:
+            self.append_to_map(self.row, self.col)
+        self.level = self.map[self.row][self.col] 
+
+    def append_to_map(self, row, col):
+        self.map[row][col] = Level(row, col)
+        self.map[row][col].load_level()
 
     def init_sprites(self):
         self.sprites = pygame.sprite.Group(self.player, self.player.weapon, self.ico, self.p_hp_bar, self.p_mana_bar, self.p_stamina_bar, self.slot_1, self.slot_2)
@@ -95,10 +106,34 @@ class Game:
             boss.perform_action(calc_dir(self.player.rect.x, boss.rect.x), self.player)
             boss.update(self.level.tiles)
 
+    def handle_level(self):
+        if self.player.rect.x > SCREEN_WIDTH:
+            self.col += 1
+            self.player.rect.x = 0
+            self.switch_level()
+            self.append_sprites()
+        elif self.player.rect.x < 0:
+            self.col -= 1
+            self.player.rect.x = SCREEN_WIDTH
+            self.switch_level()
+            self.append_sprites()
+        elif self.player.rect.y > SCREEN_HEIGHT:
+            self.row += 1
+            self.player.rect.y = 0
+            self.switch_level()
+            self.append_sprites()
+        elif self.player.rect.y < 0:
+            self.row -= 1
+            self.player.rect.y = SCREEN_HEIGHT
+            self.switch_level()
+            self.append_sprites()
+
     # Main game loop
     def game_loop(self):
         running = True 
         while running:
+            # Handle level switching
+            self.handle_level()
             # Process keyboard input
             handle_input(self.player, self.level.bosses[0], self.slot_1, self.slot_2)
 
