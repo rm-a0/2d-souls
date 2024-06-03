@@ -82,6 +82,7 @@ Run using
 - [x] Tilemap
 - [x] Updated physics
 - [x] Added dynamic map loading
+- [x] Controls handle multiple objects
 - [ ] Added inventory
 - [ ] Added chests
 
@@ -95,4 +96,4 @@ Run using
 - [x] Enemy weapon isnt displayed
 - [ ] Weapon stays displayed after its used
 - [x] Remove enemies from previous level
-- [ ] Adjust key handling for more than one entity
+- [x] Adjust key handling for more than one entity
