@@ -37,7 +37,6 @@ class Enemy(Entity):
             else:
                 self.weapon.deal_damage(obj)
                 self.state = IDLE
-
         else:
             self.state = IDLE
 

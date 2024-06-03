@@ -29,6 +29,7 @@ class Entity(pygame.sprite.Sprite):
     def update(self, tiles):
         if self.stun > 0:
             self.stun -= 1
+            return
         if self.deflect > 0:
             self.deflect -= 1
         if self.dash_duration > 0:
@@ -36,14 +37,14 @@ class Entity(pygame.sprite.Sprite):
 
         self.apply_gravity()
         self.rect.x += self.velocity.x
-        self.detect_collision(tiles, 'horizontal')
+        self.tile_collision(tiles, 'horizontal')
         self.rect.y += self.velocity.y
-        self.detect_collision(tiles, 'vertical')
+        self.tile_collision(tiles, 'vertical')
 
         if self.dash_duration <= 0:
             self.velocity.x = 0
 
-    def detect_collision(self, tiles, direction):
+    def tile_collision(self, tiles, direction):
         for tile in tiles:
             if self.rect.colliderect(tile.rect):
                 if direction == 'horizontal':
@@ -56,7 +57,7 @@ class Entity(pygame.sprite.Sprite):
                         self.velocity.y = 0
                         self.rect.bottom = tile.rect.top
                         self.jumping = False
-                    elif self.velocity < 0:
+                    elif self.velocity.y < 0:
                         self.rect.top = tile.rect.bottom
                         self.velocity.y = 0
 
