@@ -83,6 +83,7 @@ Run using
 - [x] Updated physics
 - [x] Added dynamic map loading
 - [x] Controls handle multiple objects
+- [x] Added and tested with multiple levels
 - [ ] Added inventory
 - [ ] Added chests
 
@@ -97,3 +98,4 @@ Run using
 - [ ] Weapon stays displayed after its used
 - [x] Remove enemies from previous level
 - [x] Adjust key handling for more than one entity
+- [ ] When player is killed physics bug out
