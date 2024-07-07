@@ -99,3 +99,4 @@ Run using
 - [x] Remove enemies from previous level
 - [x] Adjust key handling for more than one entity
 - [ ] When player is killed physics bug out
+- [ ] When enemy is killed, they can still attack
