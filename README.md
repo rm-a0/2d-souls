@@ -84,6 +84,7 @@ Run using
 - [x] Added dynamic map loading
 - [x] Controls handle multiple objects
 - [x] Added and tested with multiple levels
+- [x] Game ends when players hp reaches 0
 - [ ] Added inventory
 - [ ] Added chests
 

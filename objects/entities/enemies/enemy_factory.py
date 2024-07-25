@@ -1,6 +1,6 @@
 import pygame
 
-from core.constants import ENEMY_WIDTH, ENEMY_HEIGHT, RED, ENEMY_MAX_HP, ENEMY_SPEED
+from core.constants import ENEMY_WIDTH, ENEMY_HEIGHT, ORANGE, ENEMY_MAX_HP, ENEMY_SPEED
 from objects.entities.enemies.enemy import Enemy
 from objects.weapons.weapon import Weapon
 from objects.weapons.weapon_factory import WeaponFactory
@@ -13,7 +13,7 @@ class EnemyFactory:
             y,
             ENEMY_WIDTH,
             ENEMY_HEIGHT,
-            RED,
+            ORANGE,
             ENEMY_MAX_HP,
             ENEMY_SPEED
         )

@@ -39,3 +39,5 @@ class Level:
                     self.enemies.append(EnemyFactory.create_default_enemy(x*TILE_WIDTH, y*TILE_HEIGHT-30))
                 elif tile == 3:
                     self.bosses.append(BossFactory.create_default_boss(x*TILE_WIDTH, y*TILE_HEIGHT))
+                elif tile == 4:
+                    self.bosses.append(BossFactory.create_jumping_boss(x*TILE_WIDTH, y*TILE_HEIGHT))

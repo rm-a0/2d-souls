@@ -2,23 +2,23 @@ import pygame
 import sys
 
 from core.constants import *                    # Constant variables
-from core.settings import *                 # Settings
+from core.settings import *                     # Settings
 
-from utils.calc import *                    # Import utilities for calculating
+from utils.calc import *                        # Import utilities for calculating
 
 from objects.items.item_factory import ItemFactory
 from objects.weapons.weapon_factory import WeaponFactory
-from objects.entities.player import Player              # Player class
-from objects.entities.enemies.enemy import Enemy                # Enemy class
-from objects.items.consumable import Flask           # Flask class
-from objects.weapons.weapon import Weapon              # Weapon class
+from objects.entities.player import Player
+from objects.entities.enemies.enemy import Enemy
+from objects.items.consumable import Flask
+from objects.weapons.weapon import Weapon
 
-from ui.ui_factory import UiFactory         # Ui factory class
-from ui.bar import Bar                     # Bar classes
-from ui.icon import Icon                   # Icon class
-from ui.slot import Slot                   # Slot class
+from ui.ui_factory import UiFactory
+from ui.bar import Bar
+from ui.icon import Icon
+from ui.slot import Slot
 
-from build.level import Level              # Level class
+from build.level import Level
 
 class Game:
     def __init__(self):
@@ -34,7 +34,7 @@ class Game:
         # Map and levels
         self.row = 0
         self.col = 0
-        self.map = [[None for _ in range(5)] for _ in range(5)]
+        self.map = [[None for _ in range(MAX_ROWS)] for _ in range(MAX_COLS)]
         self.level = None
 
         self.init_player()
@@ -63,6 +63,15 @@ class Game:
         self.slot_2.update_count()
 
     def switch_level(self):
+        if self.row >= MAX_ROWS or self.row < 0:
+            print("Row level index out of range")
+            pygame.quit()
+            sys.exit()
+        if self.col >= MAX_COLS or self.col < 0:
+            print("Col level index out of range")
+            pygame.quit()
+            sys.exit()
+
         if self.map[self.row][self.col] == None:
             self.append_to_map(self.row, self.col)
         self.level = self.map[self.row][self.col] 
@@ -130,16 +139,26 @@ class Game:
             self.player.rect.y = SCREEN_HEIGHT
             self.switch_level()
             self.init_level_sprites()
+    def check_game_end(self):
+        if self.player.hp <= 0:
+            print("You lost")
+            pygame.quit()
+            sys.exit()
 
     # Main game loop
     def game_loop(self):
         running = True 
         while running:
+            # Check if player is alive
+            self.check_game_end()
+
             # Handle level switching
             self.handle_level()
+
             # Process keyboard input
             handle_input(self.player, self.level, self.slot_1, self.slot_2)
 
+            # Handle entities
             self.handle_player()
             self.handle_enemies()
 

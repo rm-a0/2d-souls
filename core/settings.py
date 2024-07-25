@@ -1,10 +1,10 @@
 import pygame
 import sys
 
-from objects.entities.player import Player              # Player class
-from objects.entities.enemies.enemy import Enemy                # Enemy class
-from objects.items.consumable import Flask           # Flask class
-from objects.weapons.weapon import Weapon              # Weapon class
+from objects.entities.player import Player
+from objects.entities.enemies.enemy import Enemy
+from objects.items.consumable import Flask
+from objects.weapons.weapon import Weapon
 
 # Hanlde keyboard input
 def handle_input(player, level, slot1, slot2):

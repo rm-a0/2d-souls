@@ -5,7 +5,7 @@ from objects.entities.entity import Entity
 
 class Boss(Entity):
     def __init__(self, x, y, width, height, color, hp, speed):
-        super().__init__(x, y, width, height, color, hp,speed)
+        super().__init__(x, y, width, height, color, hp, speed)
         # Flags
         self.state = IDLE
         self.charge = 0
@@ -39,7 +39,7 @@ class Boss(Entity):
                 self.state = IDLE
         else:
             self.state = IDLE
- 
+
     # FSM for changing changing states
     def change_state(self, dist):
         if self.state == IDLE:
