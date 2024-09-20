@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from core.game import Game
 
-# Main 
+# Main
 def main():
     game = Game()
     game.game_loop()
