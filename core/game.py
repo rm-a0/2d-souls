@@ -19,7 +19,7 @@ from ui.bar import Bar
 from ui.icon import Icon
 from ui.slot import Slot
 
-from build.level import Level
+from data.level import Level
 
 class Game:
     def __init__(self):

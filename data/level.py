@@ -4,7 +4,7 @@ import pygame
 from core.constants import *
 from objects.entities.enemies.enemy_factory import EnemyFactory
 from objects.entities.bosses.boss_factory import BossFactory
-from build.tiles.tile_factory import TileFactory
+from data.tiles.tile_factory import TileFactory
 
 class Level:
     def __init__(self, x, y):
@@ -16,7 +16,7 @@ class Level:
         self.bosses = []
 
     def load_level(self):
-        filepath = os.path.join('build/levels', self.name)
+        filepath = os.path.join('data/levels', self.name)
         fullpath = os.path.join(filepath, 'tilemap.txt')
         self.decode_tilemap(self.load_tilemap(fullpath))
 
