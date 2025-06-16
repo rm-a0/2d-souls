@@ -9,6 +9,5 @@ class TileFactory:
             y,
             TILE_WIDTH,
             TILE_HEIGHT,
-            WHITE,
-            "assets/textures/default_texture.png"
+            tile_id=0
         )

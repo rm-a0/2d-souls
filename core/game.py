@@ -1,10 +1,11 @@
 import pygame
 import sys
 
-from core.constants import *                    # Constant variables
-from core.settings import *                     # Settings
+from core.constants import *
+from core.settings import *
 
-from utils.calc import *                        # Import utilities for calculating
+from utils.calc import *
+from utils.texture_cache import preload_textures
 
 from objects.items.item_factory import ItemFactory
 from objects.weapons.weapon_factory import WeaponFactory
@@ -27,6 +28,9 @@ class Game:
 
         self.screen = pygame.display.set_mode((SCREEN_WIDTH ,SCREEN_HEIGHT))
         pygame.display.set_caption('dev/2d-souls')
+
+        preload_textures() 
+
         self.clock = pygame.time.Clock()
         self.font = pygame.font.Font(None, 26)
         self.main_sprites = pygame.sprite.Group()
