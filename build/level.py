@@ -34,7 +34,7 @@ class Level:
         for y, row in enumerate(tilemap):
             for x, tile in enumerate(row):
                 if tile == 1:
-                    self.tiles.add(TileFactory.create_tile(x*TILE_WIDTH, y*TILE_HEIGHT))
+                    self.tiles.add(TileFactory.create_default_tile(x*TILE_WIDTH, y*TILE_HEIGHT))
                 elif tile == 2:
                     self.enemies.append(EnemyFactory.create_default_enemy(x*TILE_WIDTH, y*TILE_HEIGHT-30))
                 elif tile == 3:

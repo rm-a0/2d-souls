@@ -139,6 +139,7 @@ class Game:
             self.player.rect.y = SCREEN_HEIGHT
             self.switch_level()
             self.init_level_sprites()
+
     def check_game_end(self):
         if self.player.hp <= 0:
             print("You lost")
