@@ -11,9 +11,9 @@ Simple game engine and 2D game inspired by Dark Souls, Sekiro and Hollow Knight 
 # Description
 ## File Structure
 ```
-├── main.py             - executable script             
+├── main.py             - executable script
 │
-├── build/              - components necessary for building parts of a game
+├── data/               - components necessary for building parts of a game
 │   ├── level.py        - level class
 │   ├── levels/         - txt files with tilempas
 │   └── tiles/          - different types of tiles
@@ -34,6 +34,7 @@ Simple game engine and 2D game inspired by Dark Souls, Sekiro and Hollow Knight 
 │
 ├── ui/                 - user interface
 └── utils/              - basic utilities (for math)
+├── assets/             - assets like textures and sprites
 ```
 
 Every complex object (enemy, boss, ...) is designed using simple FSM with hierarchical states (every state has substates and different conditional branches). 
@@ -57,9 +58,6 @@ Run using
 ```
 
 # How to use
-> [!NOTE]
-> Rebinding is not implemented yet
-> You can rebind keys manually in main.py
 
 ### List of Keybinds
 | Keys                      | Actions                                       |
@@ -85,6 +83,7 @@ Run using
 - [x] Controls handle multiple objects
 - [x] Added and tested with multiple levels
 - [x] Game ends when players hp reaches 0
+- [x] Added textures and their caching
 - [ ] Added inventory
 - [ ] Added chests
 
