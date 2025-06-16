@@ -114,10 +114,14 @@ class Game:
 
     def handle_enemies(self):
         for enemy in self.level.enemies:
+            if enemy.hp <= 0:
+                continue
             enemy.change_state(calc_dist(self.player.rect.center, enemy.rect.center))
             enemy.perform_action(calc_dir(self.player.rect.x, enemy.rect.x), self.player)
             enemy.update(self.level.tiles)
         for boss in self.level.bosses:
+            if boss.hp <= 0:
+                continue
             boss.change_state(calc_dist(self.player.rect.center, boss.rect.center))
             boss.perform_action(calc_dir(self.player.rect.x, boss.rect.x), self.player)
             boss.update(self.level.tiles)
