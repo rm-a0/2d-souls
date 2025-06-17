@@ -98,5 +98,5 @@ Run using
 - [ ] Weapon stays displayed after its used
 - [x] Remove enemies from previous level
 - [x] Adjust key handling for more than one entity
-- [ ] When player is killed physics bug out
-- [ ] When enemy is killed, they can still attack
+- [x] When player is killed physics bug out
+- [x] When enemy is killed, they can still attack
